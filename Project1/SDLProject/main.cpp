@@ -120,16 +120,16 @@ void Update() {
     
     modelMatrix = glm::mat4(1.0f);
     modelMatrix = glm::translate(modelMatrix, glm::vec3(-4.0f, -2.0f, 0.0f));
-    //modelMatrix = glm::scale(modelMatrix, glm::vec3(2.0f, 2.0f, 1.0f));
+    modelMatrix = glm::scale(modelMatrix, glm::vec3(2.0f, 2.0f, 1.0f));
     modelMatrix = glm::translate(modelMatrix, glm::vec3(0.0f, player_y, 0.0f));
     
     sunMatrix = glm::mat4(1.0f);
-    //sunMatrix = glm::scale(sunMatrix, glm::vec3(3.0f, 3.0f, 1.0f));
+    sunMatrix = glm::scale(sunMatrix, glm::vec3(3.0f, 3.0f, 1.0f));
     sunMatrix = glm::rotate(sunMatrix, glm::radians(rot_val), glm::vec3(0.0f, 0.0f, 1.0f));
     
     rightMonsterMatrix =glm::mat4(1.0f);
     rightMonsterMatrix = glm::translate(rightMonsterMatrix, glm::vec3(4.0f, -2.0f, 0.0f));
-    //rightMonsterMatrix= glm::scale(rightMonsterMatrix, glm::vec3(2.0f, 2.0f, 1.0f));
+    rightMonsterMatrix= glm::scale(rightMonsterMatrix, glm::vec3(2.0f, 2.0f, 1.0f));
     rightMonsterMatrix = glm::translate(rightMonsterMatrix, glm::vec3(0.0f, player_y, 0.0f));
 }
 

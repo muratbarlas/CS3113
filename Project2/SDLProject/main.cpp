@@ -92,8 +92,7 @@ void Initialize() {
     
     viewMatrix = glm::mat4(1.0f);
     modelMatrix = glm::mat4(1.0f); //left brick
-    //sunMatrix =glm::mat4(1.0f);
-    //rightMonsterMatrix=glm::mat4(1.0f);
+    
     brickRightMatrix = glm::mat4(1.0f);
     ballMatrix = glm::mat4(1.0f);
     
@@ -111,7 +110,7 @@ void Initialize() {
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     playerTextureID = LoadTexture("brickLeft.png");
-    //sunTextureID = LoadTexture("sun.png");
+    
     brickRightTextureID = LoadTexture("brickRight.png");
     ballTextureID = LoadTexture("ball.png");
     
