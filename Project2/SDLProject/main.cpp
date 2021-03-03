@@ -55,7 +55,7 @@ bool gameIsGoing = true;
 
 
 float player_speed = 1.0f;
-float ball_speed = 2.0f;
+float ball_speed = 2.5f;
 
 
 GLuint playerTextureID, sunTextureID,brickRightTextureID, ballTextureID;
@@ -274,14 +274,13 @@ void Update() {
     //checkCollision(); //checks collision between ball and paddles
     
     if (ballStarted == true && gameIsGoing == true){
-        if (ball_position.y >= 3.25f || ball_position.y<= -3.25f){
+        if (ball_position.y >= 3.25f || ball_position.y<= -3.25f){ //hits top or bottom
             ball_movement.y *= -1.0f;
-            //std::cout << "hit top/bottom" << '\n';
+            
+            
         }
         
         if (ball_position.x >= 4.5f || ball_position.x<= -4.5){ //hits sides
-            
-            //gameIsRunning = false;
             gameIsGoing = false;
         }
         
