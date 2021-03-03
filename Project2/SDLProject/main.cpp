@@ -51,9 +51,11 @@ glm::vec3 ball_movement=glm::vec3(0, 0, 0);
 //glm::vec3 ball_scale = glm::vec3(0.70f, 0.7f, 0.7f);
 glm::vec3 ball_scale = glm::vec3(1.0f, 1.0f, 1.0f);
 bool ballStarted = false;
+bool gameIsGoing = true;
 
 
 float player_speed = 1.0f;
+float ball_speed = 2.0f;
 
 
 GLuint playerTextureID, sunTextureID,brickRightTextureID, ballTextureID;
@@ -149,34 +151,29 @@ void ProcessInput() {
     
     
     if (keys[SDL_SCANCODE_DOWN]) {
-        if ( right_brick_position.y >-2.7f){
+        if ( right_brick_position.y >-2.7f&& gameIsGoing == true){
             right_brick_movement.y -=3.0f;
         }
     }
     else if (keys[SDL_SCANCODE_UP]) {
-        if(right_brick_position.y<2.7f){
+        if(right_brick_position.y<2.7f&& gameIsGoing == true){
             right_brick_movement.y +=3.0f;
         }
     }
     
     if (keys[SDL_SCANCODE_W]) {
         //PlayerLeft();
-        if (player_position.y <2.7f){
+        if (player_position.y <2.7f && gameIsGoing == true){
             player_movement.y +=3.0f;
         }
     }
     else if (keys[SDL_SCANCODE_S]) {
-        if (player_position.y > -2.7f){
+        if (player_position.y > -2.7f && gameIsGoing == true){
             player_movement.y -=3.0f;
         }
         
     }
     
-    
-   
-    
-    
-   
     
     if (keys[SDL_SCANCODE_SPACE]) {
         if (ballStarted == false){ //so that space key becomes ineffective when the game starts
@@ -253,10 +250,14 @@ void Update() {
     float deltaTime = ticks - lastTicks;
     lastTicks = ticks;
     // Add (direction * units per second * elapsed time)
-    ball_position += ball_movement * player_speed * deltaTime;
+    
+    if (gameIsGoing == true){ //ball stops when someone loses
+        ball_position += ball_movement * ball_speed * deltaTime;
+        
+    }
     player_position += player_movement * player_speed * deltaTime;
     right_brick_position += right_brick_movement * player_speed * deltaTime;
-    ball_position +=ball_movement * player_speed * deltaTime;
+    //ball_position +=ball_movement * player_speed * deltaTime;
     
     modelMatrix = glm::mat4(1.0f);
     modelMatrix = glm::scale(modelMatrix, brick_scale);
@@ -272,16 +273,16 @@ void Update() {
     
     //checkCollision(); //checks collision between ball and paddles
     
-    if (ballStarted == true){
+    if (ballStarted == true && gameIsGoing == true){
         if (ball_position.y >= 3.25f || ball_position.y<= -3.25f){
-            
             ball_movement.y *= -1.0f;
             //std::cout << "hit top/bottom" << '\n';
         }
         
-        if (ball_position.x >= 4.4f || ball_position.x<= -4.4){
+        if (ball_position.x >= 4.5f || ball_position.x<= -4.5){ //hits sides
             
-            gameIsRunning = false;
+            //gameIsRunning = false;
+            gameIsGoing = false;
         }
         
         //std::cout<<"here"<<ball_position.x<<"end";
