@@ -365,12 +365,12 @@ void Render() {
     
     if (state.player->lastCollided == LANDER) {
         //std::cout<<"landed";
-        DrawText(&program, fontTextureID, "MISSION COMPLETE", 0.7f, -0.3f, glm::vec3(-3.1f, 0.6f,0));
+        DrawText(&program, fontTextureID, "MISSION SUCCESSFUL", 0.7f, -0.3f, glm::vec3(-3.1f, 0.6f,0));
         paused = true;
     }
     else if (state.player->lastCollided == TILE) {
        //std::cout<<"failed";
-        DrawText(&program, fontTextureID, "FAILED",  0.7f, -0.3f, glm::vec3(-1.0f, 0.6f,0));
+        DrawText(&program, fontTextureID, "MISSION FAILED",  0.7f, -0.3f, glm::vec3(-2.3f, 0.6f,0));
         paused = true;
     }
     
