@@ -54,6 +54,8 @@ public:
     bool collidedLeft = false;
     bool collidedRight = false;
     
+    bool defeated = false;
+    
     Entity();
     bool CheckCollision(Entity *other);
     void Render(ShaderProgram *program);

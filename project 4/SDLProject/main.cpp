@@ -331,13 +331,27 @@ void Render() {
     }
     for (int i=0; i<ENEMY_COUNT;i++){
         state.enemies[i].Render(&program);
-        
-        if (state.enemies[i].collidedTop == true){
-            state.enemies[i].isActive = false;
-        }
+        //if (state.enemies[i].collidedTop == true){
+            //state.enemies[i].isActive = false;
+        //}
         
     }
     
+    if (state.enemies[0].isActive == false && state.enemies[1].isActive == false){
+        DrawText(&program, fontTextureID, "YOU WON", 0.7f, -0.3f, glm::vec3(-3.1f, 0.6f,0));
+        paused = true;
+    }
+    
+    if (state.player->defeated == true){
+        DrawText(&program, fontTextureID, "YOU LOST", 0.7f, -0.3f, glm::vec3(-3.1f, 0.6f,0));
+        paused = true;
+    }
+    /*
+    if ((state.player->lastCollided == ENEMY && state.player->collidedLeft == true) || (state.player->lastCollided == ENEMY && state.player->collidedRight == true) ){
+        DrawText(&program, fontTextureID, "YOU LOST", 0.7f, -0.3f, glm::vec3(-3.1f, 0.6f,0));
+        paused = true;
+    }
+    */
     
     state.player->Render(&program);
     

@@ -44,11 +44,9 @@ void Entity::CheckCollisionsY(Entity *objects, int objectCount){
                 position.y += penetrationY;
                 velocity.y = 0;
                 collidedBottom = true;
-                if (object->entityType == ENEMY){
-                    object ->collidedTop = true;
-                    //This issupposed to make collidedTop true for the enemy
-                    //when the character  collids with them as the character is falling down after jump
-                    //but isn't making a change right now
+                if (this->entityType == PLAYER && object -> entityType == ENEMY){
+                    object->isActive = false;
+                    
                 }
             }
             
@@ -66,8 +64,16 @@ void Entity::CheckCollisionsX(Entity *objects, int objectCount){
             if (velocity.x > 0) { // we are moving to the right
                 position.x -= penetrationX;
                 velocity.x = 0;
-                
-                
+                collidedRight = true;
+                // new a addition
+                if (this->entityType == PLAYER && object -> entityType == ENEMY){
+                    this->defeated = true;
+                    
+                }
+                else if (this->entityType == ENEMY && object -> entityType == PLAYER){
+                    object->defeated = true;
+                }
+                //
                 
                 
             }
@@ -75,7 +81,14 @@ void Entity::CheckCollisionsX(Entity *objects, int objectCount){
                 position.x += penetrationX;
                 velocity.x = 0;
                 collidedLeft = true;
-                
+                //
+                if (this->entityType == PLAYER && object -> entityType == ENEMY){
+                    this->defeated = true;
+                }
+                if (this->entityType == ENEMY && object -> entityType == PLAYER){
+                    object->defeated = true;
+                }
+                //
                
             }
             
