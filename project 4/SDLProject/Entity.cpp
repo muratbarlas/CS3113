@@ -61,7 +61,7 @@ void Entity::CheckCollisionsX(Entity *objects, int objectCount){
         if (CheckCollision(object)){
             float xdist = fabs(position.x - object->position.x);
             float penetrationX = fabs(xdist - (width / 2.0f) - (object->width / 2.0f));
-            if (velocity.x > 0) { // we are moving to the right
+            if (velocity.x >= 0) { // we are moving to the right
                 position.x -= penetrationX;
                 velocity.x = 0;
                 collidedRight = true;
@@ -85,7 +85,7 @@ void Entity::CheckCollisionsX(Entity *objects, int objectCount){
                 if (this->entityType == PLAYER && object -> entityType == ENEMY){
                     this->defeated = true;
                 }
-                if (this->entityType == ENEMY && object -> entityType == PLAYER){
+                else if (this->entityType == ENEMY && object -> entityType == PLAYER){
                     object->defeated = true;
                 }
                 //
@@ -98,8 +98,6 @@ void Entity::CheckCollisionsX(Entity *objects, int objectCount){
 }
 
 
-
-
 void Entity::Jumper(Entity* player){
     if (velocity.y == 0){
         velocity = glm::vec3(0,5,0);
@@ -108,6 +106,13 @@ void Entity::Jumper(Entity* player){
 
 void Entity::AIWalker(){
     movement = glm::vec3(-1,0,0);
+    
+    if (position.x <= 1.75f) {
+        speed = -speed;
+    }
+    else if (position.x > 3.75f) {
+        speed = -speed;
+    }
 }
 
 
@@ -121,7 +126,6 @@ void Entity::AIWaitAndGo(Entity* player){
             break;
             
         case WALKING:
-            
             if(player->position.x < position.x){
                 movement = glm::vec3(-1,0,0);
             }
@@ -130,9 +134,7 @@ void Entity::AIWaitAndGo(Entity* player){
             }
             
             break;
-        case ATTACKING:
-            break;
-            
+      
         case JUMPING:
             break;
     }
@@ -202,7 +204,7 @@ void Entity::Update(float deltaTime, Entity *player, Entity *platforms, int plat
     CheckCollisionsX(enemies, enemyCount);
     
    
- 
+   
     modelMatrix = glm::mat4(1.0f);
     modelMatrix = glm::translate(modelMatrix, position);
       
