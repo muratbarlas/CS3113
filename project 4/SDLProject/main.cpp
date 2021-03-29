@@ -194,19 +194,6 @@ void Initialize() {
     state.enemies[1].velocity = glm::vec3(0,2,0);
     
     
-    /*
-    state.enemies[1].aiType = JUMPER;
-    state.enemies[1].aiState = JUMPING;
-    //state.enemies[1].speed = 1;
-    //state.enemies[1].= 1;
-    //state.enemies[1].acceleration = glm::vec3(0,-9.0,0);
-    //state.enemies[1].position= glm::vec3(-3, 1.25,0);
-    //state.enemies[1].isActive = false;
-    
-    state.enemies[1].acceleration = glm::vec3(0,-3.0f,0);
-    state.enemies[1].velocity = glm::vec3(0,5,0);
-    */
-    
     
 }
 
