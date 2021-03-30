@@ -1,4 +1,9 @@
 //Murat Barlas mlb771 Project 4
+//The purpose of this game is defeating all the AIs by jumping on them. You can make
+//the main character jump by using the space key and you can make it move by using the
+//left and right arrow keys. The more you press on the space key consecutively, the higher
+//the main character will jump. You will lose if an AI collides with the main character.
+
 
 #define GL_SILENCE_DEPRECATION
 
@@ -19,7 +24,7 @@
 #include "Entity.h"
 #include <vector>
 
-#define PLATFORM_COUNT 34
+#define PLATFORM_COUNT 44
 #define ENEMY_COUNT 3
 struct GameState {
     Entity *player;
@@ -99,7 +104,7 @@ void Initialize() {
     state.player->speed = 1.5f;
     state.player->textureID = LoadTexture("george_0.png");
     state.player->acceleration = glm::vec3(0,-9.0,0);
-    state.player->width = 0.7;
+    
     
     
     state.player->animRight = new int[4] {3, 7, 11, 15};
@@ -114,10 +119,10 @@ void Initialize() {
     state.player->animCols = 4;
     state.player->animRows = 4;
     
-    
+    state.player->width=0.8;
     state.player->height=0.8;
     state.player->jumpPower = 3.0f;
-    //state.player->theType = ROCKET;
+    
     state.platforms = new Entity[PLATFORM_COUNT];
     
     GLuint platformTextureID = LoadTexture("platformPack_tile016.png");
@@ -229,7 +234,7 @@ void Initialize() {
     state.platforms[28].textureID = platformTextureID;
     state.platforms[28].position = glm::vec3(2,0.75f,0);
     
-    //helper platforms
+    //helper platform
     state.platforms[32].entityType = PLATFORM;
     state.platforms[32].textureID = platformTextureID;
     state.platforms[32].position = glm::vec3(0,2,0);
@@ -237,6 +242,51 @@ void Initialize() {
     state.platforms[33].entityType = PLATFORM;
     state.platforms[33].textureID = platformTextureID;
     state.platforms[33].position = glm::vec3(-1,2,0);
+    
+    //top  platforms
+    
+    state.platforms[34].entityType = PLATFORM;
+    state.platforms[34].textureID = platformTextureID;
+    state.platforms[34].position = glm::vec3(5,4,0);
+    
+    
+    state.platforms[35].entityType = PLATFORM;
+    state.platforms[35].textureID = platformTextureID;
+    state.platforms[35].position = glm::vec3(4,4,0);
+    
+    state.platforms[36].entityType = PLATFORM;
+    state.platforms[36].textureID = platformTextureID;
+    state.platforms[36].position = glm::vec3(3,4,0);
+    
+    state.platforms[37].entityType = PLATFORM;
+    state.platforms[37].textureID = platformTextureID;
+    state.platforms[37].position = glm::vec3(2,4,0);
+    
+    state.platforms[38].entityType = PLATFORM;
+    state.platforms[38].textureID = platformTextureID;
+    state.platforms[38].position = glm::vec3(1,4,0);
+    
+    state.platforms[39].entityType = PLATFORM;
+    state.platforms[39].textureID = platformTextureID;
+    state.platforms[39].position = glm::vec3(0,4,0);
+    
+    state.platforms[40].entityType = PLATFORM;
+    state.platforms[40].textureID = platformTextureID;
+    state.platforms[40].position = glm::vec3(-1,4,0);
+    
+    state.platforms[41].entityType = PLATFORM;
+    state.platforms[41].textureID = platformTextureID;
+    state.platforms[41].position = glm::vec3(-2,4,0);
+    
+    state.platforms[42].entityType = PLATFORM;
+    state.platforms[42].textureID = platformTextureID;
+    state.platforms[42].position = glm::vec3(-3,4,0);
+    
+    state.platforms[43].entityType = PLATFORM;
+    state.platforms[43].textureID = platformTextureID;
+    state.platforms[43].position = glm::vec3(-4,4,0);
+    
+    
     
     
     
@@ -264,6 +314,7 @@ void Initialize() {
     state.enemies[1].aiType = JUMPER;
     state.enemies[1].acceleration = glm::vec3(0,-11.0f,0);
     state.enemies[1].velocity = glm::vec3(0,2,0);
+     
     
     state.enemies[2].entityType = ENEMY;
     state.enemies[2].textureID = enemyTextureID;
