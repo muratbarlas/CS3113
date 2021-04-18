@@ -15,10 +15,15 @@
 #include "glm/mat4x4.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 #include "ShaderProgram.h"
- #include <cstdlib>
+#include <cstdlib>
+#include <SDL_mixer.h>
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
+
+
+Mix_Music *music;
+Mix_Chunk *bounce;
 
 SDL_Window* displayWindow;
 bool gameIsRunning = true;
@@ -79,7 +84,7 @@ GLuint LoadTexture(const char* filePath) {
 
 
 void Initialize() {
-    SDL_Init(SDL_INIT_VIDEO);
+    SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
     displayWindow = SDL_CreateWindow("Pong Game!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_OPENGL);
     SDL_GLContext context = SDL_GL_CreateContext(displayWindow);
     SDL_GL_MakeCurrent(displayWindow, context);
@@ -115,6 +120,14 @@ void Initialize() {
     
     brickRightTextureID = LoadTexture("brickRight.png");
     ballTextureID = LoadTexture("ball.png");
+    
+    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
+    music = Mix_LoadMUS("dooblydoo.mp3");
+    Mix_VolumeMusic(MIX_MAX_VOLUME/10); //turns the volume down
+    Mix_PlayMusic(music, -1);
+    
+    
+    bounce = Mix_LoadWAV("bounce.wav");
     
 }
 
@@ -290,7 +303,7 @@ void Update() {
     
     if (checkCollision() == true ){
         ball_movement.x *= -1.0f;
-        
+        Mix_PlayChannel(-1, bounce, 0);
         
         //std::cout << "collided" << '\n';
     }
