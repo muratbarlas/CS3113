@@ -2,7 +2,7 @@
 #define LEVEL2_WIDTH 14
 #define LEVEL2_HEIGHT 8
 
-
+GLuint fontTextureID3;
 #define LEVEL2_ENEMY_COUNT 1
 unsigned int level2_data[] =
 {
@@ -18,6 +18,7 @@ unsigned int level2_data[] =
 
 
 void Level2::Initialize() {
+    fontTextureID3=Util::LoadTexture("font1.png");
     state.nextScene = -1;
     GLuint mapTextureID = Util::LoadTexture("tileset.png");
     state.map = new Map(LEVEL2_WIDTH, LEVEL2_HEIGHT, level2_data, mapTextureID, 1.0f, 4, 1);
@@ -65,9 +66,22 @@ void Level2::Initialize() {
 }
 void Level2::Update(float deltaTime) {
     state.player->Update(deltaTime, state.player, state.enemies, LEVEL2_ENEMY_COUNT, state.map);
+   
+    
 }
 void Level2::Render(ShaderProgram *program) {
     state.map->Render(program);
     state.player->Render(program);
+    
+    if (state.player->position.x < 5){
+        Util::DrawText(program, fontTextureID3, "Lives: " + std::to_string(state.lives) , 0.4f, 0.0f, glm:: vec3(5.5, -0.5,0.0f));
+    }
+    
+    else if (state.player->position.x > 5) {
+        Util::DrawText(program, fontTextureID3, "Lives:" + std::to_string(state.lives) , 0.3f, 0.0f, glm:: vec3(state.player->position.x+0.5, -0.5,0.0f));
+    }
+    
+    
+   
 }
 

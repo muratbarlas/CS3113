@@ -1,5 +1,8 @@
 #include "Entity.h"
 
+
+#include "Scene.h"
+
 Entity::Entity()
 {
     
@@ -57,10 +60,25 @@ void Entity::CheckCollisionsX(Entity *objects, int objectCount){
         if (CheckCollision(object)){
             float xdist = fabs(position.x - object->position.x);
             float penetrationX = fabs(xdist - (width / 2.0f) - (object->width / 2.0f));
-            if (velocity.x > 0) { // we are moving to the right
+            if ((velocity.x >= 0 && this->entityType == PLAYER &&object -> entityType == ENEMY) || velocity.x > 0 ) { // we are moving to the right
                 position.x -= penetrationX;
                 velocity.x = 0;
                 collidedRight = true;
+                if (this->entityType == PLAYER && object -> entityType == ENEMY){
+                    this->defeated = true; 
+                    
+                    /*
+                    this->lives -=1; //decrease player lives by 1
+                    
+                    state.lives -= 1;
+                    if ((this->lives) >= 1){
+                        std::cout << this->lives << '\n';
+                        this->position = glm::vec3(2, 0,0); //bring the player back to the beginning if there
+                                                            //are remaining lives
+                    }
+//                   */
+                    
+                }
                 
             }
             else if (velocity.x < 0) {

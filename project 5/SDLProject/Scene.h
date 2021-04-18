@@ -19,7 +19,9 @@ struct GameState {
     Entity *player;
     Entity *enemies;
     int nextScene;
+    int lives = 3;
 };
+
 class Scene {
 public:
     GameState state;

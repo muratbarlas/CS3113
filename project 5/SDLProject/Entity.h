@@ -21,6 +21,7 @@ enum AIState {IDLE, WALKING, ATTACKING, JUMPING};
 
 class Entity {
 public:
+    bool defeated = false;
     int lives =3;
     EntityType entityType;
     AIType aiType;
