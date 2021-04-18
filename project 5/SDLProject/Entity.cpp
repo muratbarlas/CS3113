@@ -167,6 +167,12 @@ void Entity::AIWaitAndGo(Entity* player){
     }
 }
 
+void Entity::Jumper(Entity* player){
+    if (velocity.y == 0){
+        velocity = glm::vec3(0,5,0);
+    }
+}
+
 
 void Entity::AI(Entity* player){
     switch (aiType) {
@@ -175,6 +181,9 @@ void Entity::AI(Entity* player){
             break;
         case WAITANDGO:
             AIWaitAndGo(player);
+            break;
+        case JUMPER:
+            Jumper(player);
             break;
     }
 }

@@ -47,8 +47,8 @@ void Level1::Initialize() {
     
     
     state.player->height=0.8;
-    state.player->jumpPower = 6.0f;
-    //state.player->theType = ROCKET;
+    state.player->jumpPower = 2.0f;
+    
     
     
     state.enemies = new Entity[LEVEL1_ENEMY_COUNT];
@@ -59,10 +59,12 @@ void Level1::Initialize() {
     state.enemies[0].textureID = enemyTextureID;
     state.enemies[0].position= glm::vec3(7,-5,0);
     
-    state.enemies[0].aiType = WAITANDGO;
-    state.enemies[0].aiState = IDLE;
-    state.enemies[0].speed = 2.0f;
-    state.enemies[0].isActive = true;
+   
+    state.enemies[0].aiType = JUMPER;
+    state.enemies[0].acceleration = glm::vec3(0,-11.0f,0);
+    state.enemies[0].velocity = glm::vec3(0,2,0);
+    
+    
 }
 void Level1::Update(float deltaTime) {
     state.player->Update(deltaTime, state.player, state.enemies, LEVEL1_ENEMY_COUNT, state.map);
