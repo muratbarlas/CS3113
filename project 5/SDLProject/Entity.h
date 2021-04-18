@@ -21,7 +21,7 @@ enum AIState {IDLE, WALKING, ATTACKING, JUMPING};
 
 class Entity {
 public:
-    
+    int lives =3;
     EntityType entityType;
     AIType aiType;
     AIState aiState;
