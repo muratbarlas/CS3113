@@ -191,11 +191,13 @@ int main(int argc, char* argv[]) {
     
     while (gameIsRunning) {
         ProcessInput();
-        Update();
+        if (currentScene->state.player->lives != 0){ //game freezes if all lives are consumed
+            Update();
+        }
         if (currentScene->state.nextScene >= 0){
-            int livesToPassOver = currentScene->state.lives;
+            int livesToPassOver  = currentScene->state.player->lives;
             SwitchToScene(sceneList[currentScene->state.nextScene]);
-            currentScene->state.lives = livesToPassOver;
+            currentScene->state.player->lives =livesToPassOver;
         }
         Render();
     }

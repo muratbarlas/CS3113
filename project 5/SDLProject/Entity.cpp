@@ -65,18 +65,14 @@ void Entity::CheckCollisionsX(Entity *objects, int objectCount){
                 velocity.x = 0;
                 collidedRight = true;
                 if (this->entityType == PLAYER && object -> entityType == ENEMY){
-                    this->defeated = true; 
-                    
-                    /*
-                    this->lives -=1; //decrease player lives by 1
-                    
-                    state.lives -= 1;
+                    this->defeated = true;
+                    if ((this->lives) > 0 )this->lives -=1; //decrease player lives by 1
                     if ((this->lives) >= 1){
-                        std::cout << this->lives << '\n';
+                        //std::cout << this->lives << '\n';
                         this->position = glm::vec3(2, 0,0); //bring the player back to the beginning if there
                                                             //are remaining lives
                     }
-//                   */
+//
                     
                 }
                 

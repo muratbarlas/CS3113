@@ -90,22 +90,13 @@ void Level1::Render(ShaderProgram *program) {
     state.map->Render(program);
     state.player->Render(program);
    
-    if (state.player->defeated == true){
-        state.player->defeated = false; //
-        state.lives -= 1;
-        if (state.lives >= 0){
-            state.player->position = glm::vec3(2, 0,0);
-            std::cout<<"here"<<'\n';
-            std::cout<<state.lives<<'\n';
-        }
-    }
     
     if (state.player->position.x < 5){
-        Util::DrawText(program, fontTextureID2, "Lives: " + std::to_string(state.lives) , 0.4f, 0.0f, glm:: vec3(5.5, -0.5,0.0f));
+        Util::DrawText(program, fontTextureID2, "Lives: " + std::to_string(state.player->lives) , 0.4f, 0.0f, glm:: vec3(5.5, -0.5,0.0f));
     }
     
     else if (state.player->position.x > 5) {
-        Util::DrawText(program, fontTextureID2, "Lives:" + std::to_string(state.lives) , 0.3f, 0.0f, glm:: vec3(state.player->position.x+0.5, -0.5,0.0f));
+        Util::DrawText(program, fontTextureID2, "Lives:" + std::to_string(state.player->lives) , 0.3f, 0.0f, glm:: vec3(state.player->position.x+0.5, -0.5,0.0f));
     }
     
    
@@ -113,8 +104,5 @@ void Level1::Render(ShaderProgram *program) {
         state.enemies[i].Render(program);
     }
     
-    //if (state.player->defeated == true){
-        //Util::DrawText(program, fontTextureID2, "YOU LOST",  0.4f, 0.0f, glm:: vec3(7.5, -0.9,0.0f));
-        
-    //} to check for collision with enemy is working or not
+    
 }
