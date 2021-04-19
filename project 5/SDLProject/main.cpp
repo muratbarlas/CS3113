@@ -25,6 +25,8 @@
 #include "Scene.h"
 #include "Level1.h"
 #include "Level2.h"
+#include "Level3.h"
+#include "LevelMenu.h"
 
 
 
@@ -38,7 +40,7 @@ ShaderProgram program;
 glm::mat4 viewMatrix, modelMatrix, projectionMatrix;
 
 Scene *currentScene;
-Scene *sceneList[2];
+Scene *sceneList[3];
 void SwitchToScene(Scene *scene) {
     currentScene = scene;
     currentScene->Initialize();
@@ -78,7 +80,8 @@ void Initialize() {
     
     sceneList[0] = new Level1();
     sceneList[1] = new Level2();
-    SwitchToScene(sceneList[0]);
+    sceneList[2] = new Level3();
+    SwitchToScene(sceneList[0]); //this is the scene the game starts with
     
    
 }
@@ -110,6 +113,8 @@ void ProcessInput() {
                         currentScene->state.player->jump=true;
                         
                         break;
+                    case SDLK_RETURN:
+                        currentScene->state.enterPressed = true;
                 }
                 break; // SDL_KEYDOWN
         }
@@ -196,7 +201,7 @@ int main(int argc, char* argv[]) {
         }
         if (currentScene->state.nextScene >= 0){
             int livesToPassOver  = currentScene->state.player->lives;
-            SwitchToScene(sceneList[currentScene->state.nextScene]);
+            SwitchToScene(sceneList[currentScene->state.nextScene]); //scene switch happens
             currentScene->state.player->lives =livesToPassOver;
         }
         Render();

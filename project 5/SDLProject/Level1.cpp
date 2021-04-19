@@ -23,7 +23,7 @@ unsigned int level1_data[] =
 
 
 void Level1::Initialize() {
-    state.nextScene = -1;
+    state.nextScene = -1; 
     
     fontTextureID2=Util::LoadTexture("font1.png");
 

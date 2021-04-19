@@ -1,14 +1,9 @@
-//
-//  LevelMenu.hpp
-//  SDLProject
-//
-//  Created by Murat Barlas on 4/18/21.
-//  Copyright © 2021 ctg. All rights reserved.
-//
+#include "Scene.h"
 
-#ifndef LevelMenu_hpp
-#define LevelMenu_hpp
+class LevelMenu : public Scene {
+public:
+    void Initialize() override;
+    void Update(float deltaTime) override;
+    void Render(ShaderProgram *program) override;
+};
 
-#include <stdio.h>
-
-#endif /* LevelMenu_hpp */

@@ -19,6 +19,7 @@ struct GameState {
     Entity *player;
     Entity *enemies;
     int nextScene;
+    bool enterPressed = false;
     
 };
 
