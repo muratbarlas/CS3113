@@ -1,22 +1,22 @@
 #include "Level1.h"
-#define LEVEL1_WIDTH 14
+#define LEVEL1_WIDTH 18
 #define LEVEL1_HEIGHT 8
 
 
-#define LEVEL1_ENEMY_COUNT 1
+#define LEVEL1_ENEMY_COUNT 2
 
 GLuint fontTextureID2;
 
 unsigned int level1_data[] =
 {
-    3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    3, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,
-    3, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2,
-    3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
+    3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,3,
+    3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,3,
+    3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,3,
+    3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,3,
+    3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,3,
+    3, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,1,1,1,3,
+    3, 2, 2, 0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 2,2,2,2,3,
+    3, 2, 2, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2,2,2,2,3,
 };
 
 
@@ -38,7 +38,7 @@ void Level1::Initialize() {
     state.player->speed = 1.5f;
     state.player->textureID = Util::LoadTexture("george_0.png");
     state.player->acceleration = glm::vec3(0,-2.0,0);
-    //state.player->defeated = true;
+    
     
     
     state.player->animRight = new int[4] {3, 7, 11, 15};
@@ -57,20 +57,24 @@ void Level1::Initialize() {
     state.player->height=0.8;
     state.player->jumpPower = 2.0f;
     
-    
+    state.player->width=0.6;
     
     state.enemies = new Entity[LEVEL1_ENEMY_COUNT];
     GLuint enemyTextureID = Util::LoadTexture("ctg.png");
     
     state.enemies[0].entityType = ENEMY;
-    
     state.enemies[0].textureID = enemyTextureID;
-    state.enemies[0].position= glm::vec3(7,-5,0);
-    
-   
+    state.enemies[0].position= glm::vec3(7.5,-5,0);
     state.enemies[0].aiType = JUMPER;
     state.enemies[0].acceleration = glm::vec3(0,-11.0f,0);
     state.enemies[0].velocity = glm::vec3(0,2,0);
+    
+    state.enemies[1].entityType = ENEMY;
+    state.enemies[1].textureID = enemyTextureID;
+    state.enemies[1].position= glm::vec3(4.5,-5,0);
+    state.enemies[1].aiType = JUMPER;
+    state.enemies[1].acceleration = glm::vec3(0,-11.0f,0);
+    state.enemies[1].velocity = glm::vec3(0,2,0);
     
     
 }
@@ -92,11 +96,11 @@ void Level1::Render(ShaderProgram *program) {
    
     
     if (state.player->position.x < 5){
-        Util::DrawText(program, fontTextureID2, "Lives: " + std::to_string(state.player->lives) , 0.4f, 0.0f, glm:: vec3(5.5, -0.5,0.0f));
+        Util::DrawText(program, fontTextureID2, "Lives:" + std::to_string(state.player->lives) , 0.5f, -0.2f, glm:: vec3(7.5, -0.5,0.0f));
     }
     
-    else if (state.player->position.x > 5) {
-        Util::DrawText(program, fontTextureID2, "Lives:" + std::to_string(state.player->lives) , 0.3f, 0.0f, glm:: vec3(state.player->position.x+0.5, -0.5,0.0f));
+    else if (state.player->position.x >= 5) {
+        Util::DrawText(program, fontTextureID2, "Lives:" + std::to_string(state.player->lives) , 0.5f, -0.2f, glm:: vec3(state.player->position.x+2.5, -0.5,0.0f));
     }
     
    
