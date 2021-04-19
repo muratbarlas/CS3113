@@ -164,12 +164,26 @@ void Update() {
     
     
     viewMatrix = glm::mat4(1.0f);
-    if (currentScene->state.player->position.x > 5) {
-        viewMatrix = glm::translate(viewMatrix, glm::vec3(-currentScene->state.player->position.x, 3.75, 0));
-    } else {
-        viewMatrix = glm::translate(viewMatrix, glm::vec3(-5, 3.75, 0));
+    
+    if (currentScene != sceneList[3]){ //for the first two scenes
+        if (currentScene->state.player->position.x > 5) {
+            viewMatrix = glm::translate(viewMatrix, glm::vec3(-currentScene->state.player->position.x, 3.75, 0));
+        } else {
+            viewMatrix = glm::translate(viewMatrix, glm::vec3(-5, 3.75, 0));
+        }
+        //3.75 moves the world up in the view
     }
-    //3.75 moves the world up in the view
+    else{//when on last scene
+        if ((currentScene->state.player->position.x > 5) && !(currentScene->state.player->position.x >= 12)) {
+            viewMatrix = glm::translate(viewMatrix, glm::vec3(-currentScene->state.player->position.x, 3.75, 0));
+        }else if (currentScene->state.player->position.x <= 5)  {
+            viewMatrix = glm::translate(viewMatrix, glm::vec3(-5, 3.75, 0));
+        }
+        else if (currentScene->state.player->position.x >= 12  ) {
+            viewMatrix = glm::translate(viewMatrix, glm::vec3(-12, 3.75, 0));
+        }
+        
+    }
 }
 
 
@@ -198,7 +212,7 @@ int main(int argc, char* argv[]) {
     
     while (gameIsRunning) {
         ProcessInput();
-        if (currentScene->state.player->lives != 0){ //game freezes if all lives are consumed
+        if (currentScene->state.paused == false){ //game freezes if all lives are consumed
             Update();
         }
         if (currentScene->state.nextScene >= 0){

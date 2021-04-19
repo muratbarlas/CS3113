@@ -93,7 +93,6 @@ void Level1::Update(float deltaTime) {
 void Level1::Render(ShaderProgram *program) {
     state.map->Render(program);
     state.player->Render(program);
-   
     
     if (state.player->position.x < 5){
         Util::DrawText(program, fontTextureID2, "Lives:" + std::to_string(state.player->lives) , 0.5f, -0.2f, glm:: vec3(7.5, -0.5,0.0f));
@@ -106,6 +105,17 @@ void Level1::Render(ShaderProgram *program) {
    
     for (int i = 0; i < LEVEL1_ENEMY_COUNT; i++ ) {
         state.enemies[i].Render(program);
+    }
+    
+    if (state.player ->lives == 0){
+        if (state.player->position.x >= 4.5){
+            Util::DrawText(program, fontTextureID2, "YOU LOST" , 2.0f, -1.0f, glm:: vec3(3.5, -2.5,0.0f));
+        }
+        
+        else{
+            Util::DrawText(program, fontTextureID2, "YOU LOST" , 2.0f, -1.0f, glm:: vec3(2, -2.5,0.0f));
+        }
+        state.paused = true;
     }
     
     

@@ -20,6 +20,7 @@ struct GameState {
     Entity *enemies;
     int nextScene;
     bool enterPressed = false;
+    bool paused = false;
     
 };
 
