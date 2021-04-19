@@ -33,7 +33,7 @@ void Level2::Initialize() {
     state.player->movement = glm::vec3(0);
     state.player->speed = 1.5f;
     state.player->textureID = Util::LoadTexture("george_0.png");
-    state.player->acceleration = glm::vec3(0,-2.0,0);
+    state.player->acceleration = glm::vec3(0,-9.0,0);
     
     
     state.player->animRight = new int[4] {3, 7, 11, 15};
@@ -48,12 +48,12 @@ void Level2::Initialize() {
     state.player->animCols = 4;
     state.player->animRows = 4;
     
-    
     state.player->height=0.8;
-    state.player->jumpPower = 6.0f;
+    state.player->width=0.7;
+    state.player->jumpPower = 4.0f;
     
     state.enemies = new Entity[LEVEL2_ENEMY_COUNT];
-    GLuint enemyTextureID = Util::LoadTexture("ctg.png");
+    GLuint enemyTextureID = Util::LoadTexture("platformChar_idle.png");
     
     
     state.enemies[0].textureID = enemyTextureID;

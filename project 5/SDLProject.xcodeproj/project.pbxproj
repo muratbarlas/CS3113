@@ -25,6 +25,7 @@
 		3231FDF3262D0F5300A32046 /* LevelMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3231FDF1262D0F5300A32046 /* LevelMenu.cpp */; };
 		3231FDF6262D434000A32046 /* dooblydoo.mp3 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3231FDF4262D431D00A32046 /* dooblydoo.mp3 */; };
 		3231FDF7262D434300A32046 /* bounce.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3231FDF5262D432400A32046 /* bounce.wav */; };
+		3231FDF9262D458200A32046 /* platformChar_idle.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3231FDF8262D457400A32046 /* platformChar_idle.png */; };
 		32CBA53B2610181C00165FCE /* ctg.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32CBA53A2610181800165FCE /* ctg.png */; };
 		DBDF1B532323DE3F007CECB1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBDF1B522323DE3F007CECB1 /* main.cpp */; };
 		DBDF1B5E2323DE8D007CECB1 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBDF1B5D2323DE8D007CECB1 /* ShaderProgram.cpp */; };
@@ -55,6 +56,7 @@
 				320A495226013EEC00D5561C /* playerShip2_red.png in CopyFiles */,
 				32CBA53B2610181C00165FCE /* ctg.png in CopyFiles */,
 				3231FDD4262A7D8700A32046 /* tileset.png in CopyFiles */,
+				3231FDF9262D458200A32046 /* platformChar_idle.png in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +89,7 @@
 		3231FDF2262D0F5300A32046 /* LevelMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelMenu.h; sourceTree = "<group>"; };
 		3231FDF4262D431D00A32046 /* dooblydoo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dooblydoo.mp3; sourceTree = "<group>"; };
 		3231FDF5262D432400A32046 /* bounce.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bounce.wav; sourceTree = "<group>"; };
+		3231FDF8262D457400A32046 /* platformChar_idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = platformChar_idle.png; sourceTree = "<group>"; };
 		32CBA53A2610181800165FCE /* ctg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ctg.png; sourceTree = "<group>"; };
 		DBDF1B4F2323DE3F007CECB1 /* SDLProject */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SDLProject; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBDF1B522323DE3F007CECB1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -138,6 +141,7 @@
 		DBDF1B512323DE3F007CECB1 /* SDLProject */ = {
 			isa = PBXGroup;
 			children = (
+				3231FDF8262D457400A32046 /* platformChar_idle.png */,
 				3231FDD3262A7D6600A32046 /* tileset.png */,
 				3231FDF4262D431D00A32046 /* dooblydoo.mp3 */,
 				3231FDF5262D432400A32046 /* bounce.wav */,
