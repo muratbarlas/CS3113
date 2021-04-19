@@ -23,6 +23,8 @@
 		3231FDE9262B8DBA00A32046 /* Level2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3231FDE7262B8DBA00A32046 /* Level2.cpp */; };
 		3231FDF0262D007F00A32046 /* Level3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3231FDEE262D007F00A32046 /* Level3.cpp */; };
 		3231FDF3262D0F5300A32046 /* LevelMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3231FDF1262D0F5300A32046 /* LevelMenu.cpp */; };
+		3231FDF6262D434000A32046 /* dooblydoo.mp3 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3231FDF4262D431D00A32046 /* dooblydoo.mp3 */; };
+		3231FDF7262D434300A32046 /* bounce.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3231FDF5262D432400A32046 /* bounce.wav */; };
 		32CBA53B2610181C00165FCE /* ctg.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32CBA53A2610181800165FCE /* ctg.png */; };
 		DBDF1B532323DE3F007CECB1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBDF1B522323DE3F007CECB1 /* main.cpp */; };
 		DBDF1B5E2323DE8D007CECB1 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBDF1B5D2323DE8D007CECB1 /* ShaderProgram.cpp */; };
@@ -43,6 +45,8 @@
 			files = (
 				DBDF1B612323DE9E007CECB1 /* shaders in CopyFiles */,
 				320A4946260115DD00D5561C /* george_0.png in CopyFiles */,
+				3231FDF6262D434000A32046 /* dooblydoo.mp3 in CopyFiles */,
+				3231FDF7262D434300A32046 /* bounce.wav in CopyFiles */,
 				320A4948260120C900D5561C /* platformPack_tile001.png in CopyFiles */,
 				320A494B2601322B00D5561C /* platformPack_tile007.png in CopyFiles */,
 				320A494C2601323000D5561C /* platformPack_tile016.png in CopyFiles */,
@@ -81,6 +85,8 @@
 		3231FDEF262D007F00A32046 /* Level3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Level3.h; sourceTree = "<group>"; };
 		3231FDF1262D0F5300A32046 /* LevelMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LevelMenu.cpp; sourceTree = "<group>"; };
 		3231FDF2262D0F5300A32046 /* LevelMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelMenu.h; sourceTree = "<group>"; };
+		3231FDF4262D431D00A32046 /* dooblydoo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dooblydoo.mp3; sourceTree = "<group>"; };
+		3231FDF5262D432400A32046 /* bounce.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bounce.wav; sourceTree = "<group>"; };
 		32CBA53A2610181800165FCE /* ctg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ctg.png; sourceTree = "<group>"; };
 		DBDF1B4F2323DE3F007CECB1 /* SDLProject */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SDLProject; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBDF1B522323DE3F007CECB1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -133,6 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				3231FDD3262A7D6600A32046 /* tileset.png */,
+				3231FDF4262D431D00A32046 /* dooblydoo.mp3 */,
+				3231FDF5262D432400A32046 /* bounce.wav */,
 				32CBA53A2610181800165FCE /* ctg.png */,
 				320A494D2601396200D5561C /* font1.png */,
 				320A494F26013A8C00D5561C /* font2.png */,

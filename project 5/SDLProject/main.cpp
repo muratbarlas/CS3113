@@ -1,4 +1,4 @@
-//project 5 mlb771
+//project 5 Murat Barlas - mlb771
 
 #define GL_SILENCE_DEPRECATION
 
@@ -12,6 +12,7 @@
 #include "glm/mat4x4.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 #include "ShaderProgram.h"
+#include <SDL_mixer.h>
 
 //#define STB_IMAGE_IMPLEMENTATION
 //#include "stb_image.h"
@@ -31,6 +32,8 @@
 
 
 GLuint fontTextureID;
+Mix_Music *music;
+Mix_Chunk *bounce;
 
 SDL_Window* displayWindow;
 bool gameIsRunning = true;
@@ -47,7 +50,7 @@ void SwitchToScene(Scene *scene) {
 }
 
 void Initialize() {
-    SDL_Init(SDL_INIT_VIDEO);
+    SDL_Init(SDL_INIT_VIDEO| SDL_INIT_AUDIO);
     displayWindow = SDL_CreateWindow("Project 5", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_OPENGL);
     SDL_GLContext context = SDL_GL_CreateContext(displayWindow);
     SDL_GL_MakeCurrent(displayWindow, context);
@@ -85,6 +88,14 @@ void Initialize() {
     sceneList[3] = new Level3();
     SwitchToScene(sceneList[0]); //this is the scene the game starts with
     
+    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
+    music = Mix_LoadMUS("dooblydoo.mp3");
+    Mix_VolumeMusic(MIX_MAX_VOLUME/10); //turns the volume down
+    Mix_PlayMusic(music, -1);
+    
+    
+    bounce = Mix_LoadWAV("bounce.wav");
+    
    
 }
 
@@ -111,8 +122,8 @@ void ProcessInput() {
                         break;
                         
                     case SDLK_SPACE:
-                        
                         currentScene->state.player->jump=true;
+                        Mix_PlayChannel(-1, bounce, 0);
                         
                         break;
                     case SDLK_RETURN:
