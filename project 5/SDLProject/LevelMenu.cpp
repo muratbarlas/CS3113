@@ -24,6 +24,7 @@ void LevelMenu::Update(float deltaTime) {
     
     if (state.enterPressed == true) {
         std::cout<<"pressed enter"<<'\n';
+        state.nextScene = 1;
     }
 }
 
@@ -32,11 +33,6 @@ void LevelMenu::Render(ShaderProgram *program) {
     state.map->Render(program);
     state.player->Render(program);
     
-    Util::DrawText(program,  fontTextureID5, "MONSTER DASH", 1.1f, -0.26f, glm:: vec3(0.5, -2,0.0f));
-    Util::DrawText(program,  fontTextureID5, "AVOID BEING TOUCHED BY MONSTERS", 0.4f, -0.10f, glm:: vec3(0.65, -4,0.0f));
-    
-    Util::DrawText(program,  fontTextureID5, "BUT, YES. YOU MAY JUMP ON THEM.", 0.4f, -0.13f, glm:: vec3(1.2, -4.75,0.0f));
-    Util::DrawText(program,  fontTextureID5, "AVOID FALLING", 0.4f, 0.0f, glm:: vec3(2.5, -5.5,0.0f));
-    Util::DrawText(program,  fontTextureID5, "PRESS ENTER TO BEGIN", 0.6f, -0.20f, glm:: vec3(1.3, -6.5,0.0f));
+    Util::DrawText(program,  fontTextureID5, "MENU TEST", 1.1f, -0.2f, glm:: vec3(0.7, -2.5,0.0f));
     
 }

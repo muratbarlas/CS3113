@@ -85,7 +85,7 @@ void Level1::Update(float deltaTime) {
     }
     
     if (state.player->position.x >=12){
-        state.nextScene = 1;
+        state.nextScene = 2;
     }
 }
 
