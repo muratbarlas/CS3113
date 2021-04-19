@@ -49,11 +49,11 @@ void Level2::Initialize() {
     state.player->animRows = 4;
     
     state.player->height=0.8;
-    state.player->width=0.7;
-    state.player->jumpPower = 4.0f;
+    state.player->width=0.6;
+    state.player->jumpPower = 7.0f;
     
     state.enemies = new Entity[LEVEL2_ENEMY_COUNT];
-    GLuint enemyTextureID = Util::LoadTexture("platformChar_idle.png");
+    GLuint enemyTextureID = Util::LoadTexture("ctg.png");
     
     
     state.enemies[0].textureID = enemyTextureID;

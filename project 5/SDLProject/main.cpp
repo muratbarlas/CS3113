@@ -122,11 +122,13 @@ void ProcessInput() {
                         break;
                         
                     case SDLK_SPACE:
-                        currentScene->state.player->jump=true;
-                        Mix_PlayChannel(-1, bounce, 0);
-                        
+                        if  (currentScene->state.player->collidedBottom == true){
+                            currentScene->state.player->jump=true;
+                            Mix_PlayChannel(-1, bounce, 0);
+                        }
                         break;
                     case SDLK_RETURN:
+                       
                         currentScene->state.enterPressed = true;
                 }
                 break; // SDL_KEYDOWN
