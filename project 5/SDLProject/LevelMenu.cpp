@@ -21,7 +21,7 @@ void LevelMenu::Update(float deltaTime) {
 }
 
 void LevelMenu::Render(ShaderProgram *program) {
-    Util::DrawText(program,  fontTextureID5, "REVENGE OF GEORGE", 1.1f, -0.55f, glm:: vec3(0.6, -2.5,0.0f));
+    Util::DrawText(program,  fontTextureID5, "GEORGE ON THE RUN", 1.1f, -0.55f, glm:: vec3(0.6, -2.5,0.0f));
     Util::DrawText(program,  fontTextureID5, "Press Enter to start", 0.8f, -0.45f, glm:: vec3(1.9, -3.5,0.0f));
     
     

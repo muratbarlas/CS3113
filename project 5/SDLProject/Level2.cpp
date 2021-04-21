@@ -11,8 +11,8 @@ unsigned int level2_data[] =
     3, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,3,
     3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,3,
     3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,3,
-    3, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1,1,1,1,3,
-    3, 2, 2, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2,2,2,2,3,
+    3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,3,
+    3, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,1,1,3,
     3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,2,2,2,3,
 };
 
@@ -50,7 +50,7 @@ void Level2::Initialize() {
     
     state.player->height=0.8;
     state.player->width=0.6;
-    state.player->jumpPower = 7.0f;
+    state.player->jumpPower = 8.0f;
     
     state.enemies = new Entity[LEVEL2_ENEMY_COUNT];
     GLuint enemyTextureID = Util::LoadTexture("ctg.png");
