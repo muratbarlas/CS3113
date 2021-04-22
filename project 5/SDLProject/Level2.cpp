@@ -57,7 +57,7 @@ void Level2::Initialize() {
     
     
     state.enemies[0].textureID = enemyTextureID;
-    state.enemies[0].position= glm::vec3(11, -2,0);
+    state.enemies[0].position= glm::vec3(8, -4,0);
     state.enemies[0].entityType = ENEMY;
     state.enemies[0].textureID = enemyTextureID;
     state.enemies[0].aiType = JUMPER;
@@ -81,13 +81,14 @@ void Level2::Render(ShaderProgram *program) {
     state.map->Render(program);
     state.player->Render(program);
     
-   
     
     
     
-   
+    
+    
     if (state.player->position.x < 5){
         Util::DrawText(program, fontTextureID3, "Lives:" + std::to_string(state.player->lives) , 0.5f, -0.2f, glm:: vec3(7.5, -0.5,0.0f));
+        
     }
     
     else if (state.player->position.x >= 5) {
@@ -100,9 +101,17 @@ void Level2::Render(ShaderProgram *program) {
     }
     
     if (state.player ->lives == 0){
-        Util::DrawText(program, fontTextureID3, "YOU LOST" , 2.0f, -1.0f, glm:: vec3(7, -2.5,0.0f));
+        if (state.player->position.x <= 8){
+            Util::DrawText(program, fontTextureID3, "YOU LOST" , 2.0f, -1.0f, glm:: vec3(4, -2.5,0.0f));
+            
+        }
+        else{
+            Util::DrawText(program, fontTextureID3, "YOU LOST" , 2.0f, -1.0f, glm:: vec3(5.5, -2.5,0.0f));
+            std::cout<<"here1";
+        }
         state.paused = true;
+        
     }
-   
+    
 }
 

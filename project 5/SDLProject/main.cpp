@@ -1,4 +1,6 @@
 //project 5 Murat Barlas - mlb771
+//The goal of this game is avoiding collising with the jumping AIs from the side. It's ok collide with them
+//from their top. You can move the main character with the left and right arrow keys and jump using the space bar.
 
 #define GL_SILENCE_DEPRECATION
 

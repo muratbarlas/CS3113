@@ -91,6 +91,8 @@ void Level1::Update(float deltaTime) {
 
 
 void Level1::Render(ShaderProgram *program) {
+
+    
     state.map->Render(program);
     state.player->Render(program);
     
@@ -108,12 +110,20 @@ void Level1::Render(ShaderProgram *program) {
     }
     
     if (state.player ->lives == 0){
-        if (state.player->position.x >= 4.5){
+        if (state.player->position.x >= 5.5 && state.player->position.x < 7.5){
             Util::DrawText(program, fontTextureID2, "YOU LOST" , 2.0f, -1.0f, glm:: vec3(3.5, -2.5,0.0f));
+            //std::cout<<"here3";
+        }
+        
+       
+        
+        else if (state.player->position.x < 5.5){
+            Util::DrawText(program, fontTextureID2, "YOU LOST" , 2.0f, -1.0f, glm:: vec3(2, -2.5,0.0f));
+            //std::cout<<"here2";
         }
         
         else{
-            Util::DrawText(program, fontTextureID2, "YOU LOST" , 2.0f, -1.0f, glm:: vec3(2, -2.5,0.0f));
+            Util::DrawText(program, fontTextureID2, "YOU LOST" , 2.0f, -1.0f, glm:: vec3(5, -2.5,0.0f));
         }
         state.paused = true;
     }
