@@ -41,12 +41,18 @@ void Entity::CheckCollisionsY(Entity *objects, int objectCount){
                 position.y -= penetrationY;
                 velocity.y = 0;
                 collidedTop = true;
+                if (this->entityType == PLAYER &&object -> entityType == STAR){
+                    object->isActive = false;
+                }
                 
             }
             else if (velocity.y < 0) { //moving down meaning we collided with bottom
                 position.y += penetrationY;
                 velocity.y = 0;
                 collidedBottom = true;
+                if (this->entityType == PLAYER &&object -> entityType == STAR){
+                    object->isActive = false;
+                }
             }
             
         }
@@ -72,11 +78,16 @@ void Entity::CheckCollisionsX(Entity *objects, int objectCount){
                         this->position = glm::vec3(2, 0,0); //bring the player back to the beginning if there
                                                             //are remaining lives
                     }
-//
-                    
+                }
+                else if (this->entityType == PLAYER && object -> entityType == STAR){
+                    object->isActive = false;
                 }
                 
+                
             }
+            
+            
+            
             else if (velocity.x < 0) {
                 //we are moving left
                 position.x += penetrationX;
@@ -91,7 +102,11 @@ void Entity::CheckCollisionsX(Entity *objects, int objectCount){
                         //are remaining lives
                     }
                     //
+                   
                     
+                }
+                else if(this->entityType == PLAYER && object -> entityType == STAR){
+                    object->isActive = false;
                 }
             }
             
@@ -164,6 +179,8 @@ void Entity::CheckCollisionsX(Map *map)
     }
     
 }
+
+
 
 
 
@@ -250,7 +267,7 @@ void Entity::Update(float deltaTime, Entity *player, Entity *objects, int object
     }
     
     velocity.x = movement.x*speed;
-    velocity += acceleration*deltaTime; //without this it doesn't move up
+    velocity += acceleration*deltaTime; //without this it doesn't move up 
     velocity.y = movement.y * speed;
     
     position.y += velocity.y * deltaTime;

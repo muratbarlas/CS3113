@@ -52,7 +52,7 @@ void SwitchToScene(Scene *scene) {
 
 void Initialize() {
     SDL_Init(SDL_INIT_VIDEO| SDL_INIT_AUDIO);
-    displayWindow = SDL_CreateWindow("Project 5", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_OPENGL);
+    displayWindow = SDL_CreateWindow("Project 6", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_OPENGL);
     SDL_GLContext context = SDL_GL_CreateContext(displayWindow);
     SDL_GL_MakeCurrent(displayWindow, context);
     
@@ -152,13 +152,13 @@ void ProcessInput() {
     else if (keys[SDL_SCANCODE_UP]) {
         currentScene->state.player->movement.y = 1.0f;
         currentScene->state.player->animIndices = currentScene->state.player->animUp;
-         std::cout<<"going up"<<'\n';
+         //std::cout<<"going up"<<'\n';
     }
     
     else if (keys[SDL_SCANCODE_DOWN]) {
         currentScene->state.player->movement.y = -1.0f;
         currentScene->state.player->animIndices = currentScene->state.player->animDown;
-        std::cout<<"going down"<<'\n';
+        //std::cout<<"going down"<<'\n';
     }
     
     

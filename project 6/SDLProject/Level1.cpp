@@ -83,7 +83,7 @@ void Level1::Initialize() {
     state.stars[0].entityType = STAR;
     GLuint starTextureID = Util::LoadTexture("spaceMeteors_001.png");
     state.stars[0].textureID = starTextureID;
-    state.stars[0].position= glm::vec3(8,-5,0);
+    state.stars[0].position= glm::vec3(8,-3,0);
     
 }
 void Level1::Update(float deltaTime) {
