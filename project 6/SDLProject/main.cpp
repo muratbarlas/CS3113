@@ -150,15 +150,14 @@ void ProcessInput() {
     }
     
     else if (keys[SDL_SCANCODE_UP]) {
-        std::cout<<currentScene->state.player->movement.y<<'\n';
         currentScene->state.player->movement.y = 1.0f;
-        std::cout<<currentScene->state.player->movement.y<<'\n';
-
-        std::cout<<"going up"<<'\n';
+        currentScene->state.player->animIndices = currentScene->state.player->animUp;
+         std::cout<<"going up"<<'\n';
     }
     
     else if (keys[SDL_SCANCODE_DOWN]) {
         currentScene->state.player->movement.y = -1.0f;
+        currentScene->state.player->animIndices = currentScene->state.player->animDown;
         std::cout<<"going down"<<'\n';
     }
     

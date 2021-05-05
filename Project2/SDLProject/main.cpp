@@ -303,7 +303,7 @@ void Update() {
     
     if (checkCollision() == true ){
         ball_movement.x *= -1.0f;
-        Mix_PlayChannel(-1, bounce, 0);
+        
         
         //std::cout << "collided" << '\n';
     }

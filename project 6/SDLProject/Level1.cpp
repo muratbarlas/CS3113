@@ -56,7 +56,7 @@ void Level1::Initialize() {
     
     
     state.player->height=0.8;
-    //state.player->jumpPower = 8.0f;
+    state.player->jumpPower = 8.0f;
     
     state.player->width=0.6;
     

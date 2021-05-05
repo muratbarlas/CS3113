@@ -250,8 +250,8 @@ void Entity::Update(float deltaTime, Entity *player, Entity *objects, int object
     }
     
     velocity.x = movement.x*speed;
-    velocity += acceleration*deltaTime;
-    
+    velocity += acceleration*deltaTime; //without this it doesn't move up
+    velocity.y = movement.y * speed;
     
     position.y += velocity.y * deltaTime;
     CheckCollisionsY(map);
