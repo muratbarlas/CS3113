@@ -59,6 +59,8 @@ public:
     bool collidedLeft = false;
     bool collidedRight = false;
     
+    int initPosX =0;
+    
     Entity();
     bool CheckCollision(Entity *other);
     void Render(ShaderProgram *program);

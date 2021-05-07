@@ -186,6 +186,11 @@ void Entity::CheckCollisionsX(Map *map)
 
 void Entity::AIWalker(){
     movement = glm::vec3(-1,0,0);
+    if (0.5f < abs(initPosX - position.x)) {
+        //std::cout<< initPosX << '\n';
+        //std::cout<< "abs: " << abs(initPosX - position.x) << '\n';
+        speed = -speed;
+    }
 }
 
 void Entity::AIWaitAndGo(Entity* player){

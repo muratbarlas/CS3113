@@ -25,6 +25,7 @@
 		3231FDF3262D0F5300A32046 /* LevelMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3231FDF1262D0F5300A32046 /* LevelMenu.cpp */; };
 		3231FDF6262D434000A32046 /* dooblydoo.mp3 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3231FDF4262D431D00A32046 /* dooblydoo.mp3 */; };
 		3231FDF7262D434300A32046 /* bounce.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3231FDF5262D432400A32046 /* bounce.wav */; };
+		3278BAD32644E4A9007CB972 /* ufo.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3278BAD22644E4A2007CB972 /* ufo.png */; };
 		32CBA53B2610181C00165FCE /* ctg.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32CBA53A2610181800165FCE /* ctg.png */; };
 		32DBBE502644C99A0076859E /* test1.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32DBBE4F2644C9940076859E /* test1.png */; };
 		32DBBE522644CD120076859E /* spaceShipTest.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32DBBE512644CD0A0076859E /* spaceShipTest.png */; };
@@ -48,6 +49,7 @@
 			files = (
 				DBDF1B612323DE9E007CECB1 /* shaders in CopyFiles */,
 				320A4946260115DD00D5561C /* george_0.png in CopyFiles */,
+				3278BAD32644E4A9007CB972 /* ufo.png in CopyFiles */,
 				320879F4264230E400A0133C /* spaceMeteors_001.png in CopyFiles */,
 				32DBBE542644CFD50076859E /* meteor_detailedLarge.png in CopyFiles */,
 				32DBBE502644C99A0076859E /* test1.png in CopyFiles */,
@@ -93,6 +95,7 @@
 		3231FDF2262D0F5300A32046 /* LevelMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelMenu.h; sourceTree = "<group>"; };
 		3231FDF4262D431D00A32046 /* dooblydoo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dooblydoo.mp3; sourceTree = "<group>"; };
 		3231FDF5262D432400A32046 /* bounce.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bounce.wav; sourceTree = "<group>"; };
+		3278BAD22644E4A2007CB972 /* ufo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ufo.png; sourceTree = "<group>"; };
 		32CBA53A2610181800165FCE /* ctg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ctg.png; sourceTree = "<group>"; };
 		32DBBE4F2644C9940076859E /* test1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test1.png; sourceTree = "<group>"; };
 		32DBBE512644CD0A0076859E /* spaceShipTest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spaceShipTest.png; sourceTree = "<group>"; };
@@ -156,6 +159,7 @@
 				32CBA53A2610181800165FCE /* ctg.png */,
 				32DBBE512644CD0A0076859E /* spaceShipTest.png */,
 				320879F3264230DC00A0133C /* spaceMeteors_001.png */,
+				3278BAD22644E4A2007CB972 /* ufo.png */,
 				32DBBE4F2644C9940076859E /* test1.png */,
 				320A494D2601396200D5561C /* font1.png */,
 				320A494F26013A8C00D5561C /* font2.png */,
