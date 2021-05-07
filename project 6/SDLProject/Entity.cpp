@@ -142,6 +142,25 @@ void Entity::CheckCollisionsY(Map *map)
         collidedTop = true;
     }
     
+    //new
+    else if (map->IsSolid(top_right, &penetration_x, &penetration_y) && velocity.x > 0) {
+        // Check if we are going to the right
+        position.x -= penetration_x; // move us back to the left
+        velocity.x = 0;
+        collidedRight = true;
+    }
+    
+    else if (map->IsSolid(top_left, &penetration_x, &penetration_y) && velocity.x < 0) {
+        // Check if we are going to the left
+        position.x += penetration_x; // move us back to the right
+        velocity.x = 0;
+        collidedLeft = true;
+    }
+    //new part ending
+    
+   
+   
+    
     if (map->IsSolid(bottom, &penetration_x, &penetration_y) && velocity.y < 0) {
         position.y += penetration_y;
         velocity.y = 0;
@@ -153,10 +172,32 @@ void Entity::CheckCollisionsY(Map *map)
         collidedBottom = true;
     }
     else if (map->IsSolid(bottom_right, &penetration_x, &penetration_y) && velocity.y < 0) {
+        //
         position.y += penetration_y;
         velocity.y = 0;
         collidedBottom = true;
     }
+    
+    //new
+    else if (map->IsSolid(bottom_right, &penetration_x, &penetration_y) && velocity.x > 0) {
+        // Check if we are going to the right
+        position.x -= penetration_x; // move us back to the left
+        velocity.x = 0;
+        collidedRight = true;
+    }
+    
+    else if (map->IsSolid(bottom_left, &penetration_x, &penetration_y) && velocity.x < 0) {
+        // Check if we are going to the left
+        position.x += penetration_x; // move us back to the right
+        velocity.x = 0;
+        collidedLeft = true;
+    }
+    //new part ending
+    
+  
+    
+    
+     
 }
 
 
