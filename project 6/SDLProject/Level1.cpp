@@ -13,7 +13,7 @@ unsigned int level1_data[] =
     3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,3,
     3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,3,
     3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,3,
-    3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,3,
+    3, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,3,
     3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,3,
     3, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,1,1,1,3,
     3, 2, 2, 0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 2,2,2,2,3,
@@ -54,11 +54,13 @@ void Level1::Initialize() {
     state.player->animCols = 4;
     state.player->animRows = 4;
     
-    
-    state.player->height=0.8;
+   
     state.player->jumpPower = 8.0f;
     
-    state.player->width=0.6;
+    
+    
+    state.player->height=0.8;
+    state.player->width=0.7;
     
     state.enemies = new Entity[LEVEL1_ENEMY_COUNT];
     GLuint enemyTextureID = Util::LoadTexture("ctg.png");
@@ -81,7 +83,7 @@ void Level1::Initialize() {
     
     state.stars = new Entity[LEVEL1_STAR_COUNT];
     state.stars[0].entityType = STAR;
-    GLuint starTextureID = Util::LoadTexture("spaceMeteors_001.png");
+    GLuint starTextureID = Util::LoadTexture("meteor_DetailedLarge.png");
     state.stars[0].textureID = starTextureID;
     state.stars[0].position= glm::vec3(8,-3,0);
     
@@ -97,9 +99,9 @@ void Level1::Update(float deltaTime) {
         state.stars[i].Update(deltaTime, state.player, state.stars,  LEVEL1_ENEMY_COUNT, state.map, state.stars, LEVEL1_STAR_COUNT);
     }
     
-    if (state.player->position.x >=12){
-        state.nextScene = 2;
-    }
+    //if (state.player->position.x >=12){
+        //state.nextScene = 2;
+    //}
 }
 
 
