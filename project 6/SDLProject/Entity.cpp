@@ -142,7 +142,7 @@ void Entity::CheckCollisionsY(Map *map)
         collidedTop = true;
     }
     
-    //new
+    //new addition start
     else if (map->IsSolid(top_right, &penetration_x, &penetration_y) && velocity.x > 0) {
         // Check if we are going to the right
         position.x -= penetration_x; // move us back to the left
@@ -156,7 +156,7 @@ void Entity::CheckCollisionsY(Map *map)
         velocity.x = 0;
         collidedLeft = true;
     }
-    //new part ending
+    //new addition end
     
    
    
@@ -178,7 +178,7 @@ void Entity::CheckCollisionsY(Map *map)
         collidedBottom = true;
     }
     
-    //new
+    //new addition start
     else if (map->IsSolid(bottom_right, &penetration_x, &penetration_y) && velocity.x > 0) {
         // Check if we are going to the right
         position.x -= penetration_x; // move us back to the left
@@ -192,11 +192,9 @@ void Entity::CheckCollisionsY(Map *map)
         velocity.x = 0;
         collidedLeft = true;
     }
-    //new part ending
+    //new addition end
     
-  
-    
-    
+
      
 }
 
