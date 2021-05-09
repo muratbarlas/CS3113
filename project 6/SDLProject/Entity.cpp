@@ -43,6 +43,7 @@ void Entity::CheckCollisionsY(Entity *objects, int objectCount){
                 collidedTop = true;
                 if (this->entityType == PLAYER &&object -> entityType == STAR){
                     object->isActive = false;
+                    this->collidedWithCoin = true;
                 }
                 
             }
@@ -52,6 +53,7 @@ void Entity::CheckCollisionsY(Entity *objects, int objectCount){
                 collidedBottom = true;
                 if (this->entityType == PLAYER &&object -> entityType == STAR){
                     object->isActive = false;
+                    this->collidedWithCoin = true;
                 }
             }
             
@@ -81,6 +83,7 @@ void Entity::CheckCollisionsX(Entity *objects, int objectCount){
                 }
                 else if (this->entityType == PLAYER && object -> entityType == STAR){
                     object->isActive = false;
+                    this->collidedWithCoin = true;
                 }
                 
                 
@@ -107,6 +110,7 @@ void Entity::CheckCollisionsX(Entity *objects, int objectCount){
                 }
                 else if(this->entityType == PLAYER && object -> entityType == STAR){
                     object->isActive = false;
+                    this->collidedWithCoin = true;
                 }
             }
             

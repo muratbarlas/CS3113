@@ -26,6 +26,8 @@
 		3231FDF6262D434000A32046 /* dooblydoo.mp3 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3231FDF4262D431D00A32046 /* dooblydoo.mp3 */; };
 		3231FDF7262D434300A32046 /* bounce.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3231FDF5262D432400A32046 /* bounce.wav */; };
 		3278BAD32644E4A9007CB972 /* ufo.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3278BAD22644E4A2007CB972 /* ufo.png */; };
+		32C28E4626484F160083916E /* neon-laser.mp3 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32C28E4526484F100083916E /* neon-laser.mp3 */; };
+		32C28E4A2648520F0083916E /* coin.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32C28E49264852040083916E /* coin.wav */; };
 		32CBA53B2610181C00165FCE /* ctg.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32CBA53A2610181800165FCE /* ctg.png */; };
 		32DBBE502644C99A0076859E /* test1.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32DBBE4F2644C9940076859E /* test1.png */; };
 		32DBBE522644CD120076859E /* spaceShipTest.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32DBBE512644CD0A0076859E /* spaceShipTest.png */; };
@@ -51,7 +53,9 @@
 				320A4946260115DD00D5561C /* george_0.png in CopyFiles */,
 				3278BAD32644E4A9007CB972 /* ufo.png in CopyFiles */,
 				320879F4264230E400A0133C /* spaceMeteors_001.png in CopyFiles */,
+				32C28E4A2648520F0083916E /* coin.wav in CopyFiles */,
 				32DBBE542644CFD50076859E /* meteor_detailedLarge.png in CopyFiles */,
+				32C28E4626484F160083916E /* neon-laser.mp3 in CopyFiles */,
 				32DBBE502644C99A0076859E /* test1.png in CopyFiles */,
 				32DBBE522644CD120076859E /* spaceShipTest.png in CopyFiles */,
 				3220F4172643532600572AB8 /* spaceShip.png in CopyFiles */,
@@ -96,6 +100,8 @@
 		3231FDF4262D431D00A32046 /* dooblydoo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dooblydoo.mp3; sourceTree = "<group>"; };
 		3231FDF5262D432400A32046 /* bounce.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bounce.wav; sourceTree = "<group>"; };
 		3278BAD22644E4A2007CB972 /* ufo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ufo.png; sourceTree = "<group>"; };
+		32C28E4526484F100083916E /* neon-laser.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "neon-laser.mp3"; sourceTree = "<group>"; };
+		32C28E49264852040083916E /* coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coin.wav; sourceTree = "<group>"; };
 		32CBA53A2610181800165FCE /* ctg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ctg.png; sourceTree = "<group>"; };
 		32DBBE4F2644C9940076859E /* test1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test1.png; sourceTree = "<group>"; };
 		32DBBE512644CD0A0076859E /* spaceShipTest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spaceShipTest.png; sourceTree = "<group>"; };
@@ -152,8 +158,10 @@
 			children = (
 				3231FDD3262A7D6600A32046 /* tileset.png */,
 				3231FDF4262D431D00A32046 /* dooblydoo.mp3 */,
+				32C28E4526484F100083916E /* neon-laser.mp3 */,
 				3220F4162643531F00572AB8 /* spaceShip.png */,
 				32DBBE532644CFCE0076859E /* meteor_detailedLarge.png */,
+				32C28E49264852040083916E /* coin.wav */,
 				3231FDF5262D432400A32046 /* bounce.wav */,
 				320879F12642298800A0133C /* tileset_new.png */,
 				32CBA53A2610181800165FCE /* ctg.png */,

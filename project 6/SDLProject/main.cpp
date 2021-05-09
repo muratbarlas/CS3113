@@ -90,12 +90,10 @@ void Initialize() {
     SwitchToScene(sceneList[1]); //this is the scene the game starts with
     
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
-    music = Mix_LoadMUS("dooblydoo.mp3");
+    music = Mix_LoadMUS("neon-laser.mp3");
     Mix_VolumeMusic(MIX_MAX_VOLUME/10); //turns the volume down
     Mix_PlayMusic(music, -1);
-    
-    
-    bounce = Mix_LoadWAV("bounce.wav");
+    bounce = Mix_LoadWAV("coin.wav");
     
    
 }
@@ -123,10 +121,11 @@ void ProcessInput() {
                         break;
                 
                     case SDLK_SPACE:
-                        if  (currentScene->state.player->collidedBottom == true){
-                            currentScene->state.player->jump=true;
-                            Mix_PlayChannel(-1, bounce, 0);
-                        }
+                        
+                        //if  (currentScene->state.player->collidedBottom == true){
+                            //currentScene->state.player->jump=true;
+                            //Mix_PlayChannel(-1, bounce, 0);
+                        //}
                         break;
                     case SDLK_RETURN:
                        
@@ -190,6 +189,11 @@ void Update() {
         deltaTime -= FIXED_TIMESTEP;
     }
     accumulator = deltaTime;
+    
+    if (currentScene->state.player->collidedWithCoin == true){
+        Mix_PlayChannel(-1, bounce, 0);
+        currentScene->state.player->collidedWithCoin = false;
+    }
     
     
     viewMatrix = glm::mat4(1.0f);

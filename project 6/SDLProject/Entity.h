@@ -59,6 +59,8 @@ public:
     bool collidedLeft = false;
     bool collidedRight = false;
     
+    bool collidedWithCoin  = false;
+    
     int initPosX =0;
     
     Entity();
