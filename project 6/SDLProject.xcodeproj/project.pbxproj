@@ -30,6 +30,11 @@
 		32C28E4A2648520F0083916E /* coin.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32C28E49264852040083916E /* coin.wav */; };
 		32C28E4D264866110083916E /* Level2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32C28E4B264866110083916E /* Level2.cpp */; };
 		32C28E5026486AEC0083916E /* Level3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32C28E4E26486AEC0083916E /* Level3.cpp */; };
+		32C28E522648803C0083916E /* shipBeige_manned.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32C28E51264880370083916E /* shipBeige_manned.png */; };
+		32C28E54264881110083916E /* shipBeige_manned2.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32C28E53264881010083916E /* shipBeige_manned2.png */; };
+		32C28E56264881550083916E /* shipBeige_manned3.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32C28E55264881510083916E /* shipBeige_manned3.png */; };
+		32C28E58264882150083916E /* playerImg.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32C28E57264882040083916E /* playerImg.png */; };
+		32C28E5A264883370083916E /* playerImg2.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32C28E59264883310083916E /* playerImg2.png */; };
 		32CBA53B2610181C00165FCE /* ctg.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32CBA53A2610181800165FCE /* ctg.png */; };
 		32DBBE502644C99A0076859E /* test1.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32DBBE4F2644C9940076859E /* test1.png */; };
 		32DBBE522644CD120076859E /* spaceShipTest.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32DBBE512644CD0A0076859E /* spaceShipTest.png */; };
@@ -54,8 +59,13 @@
 				DBDF1B612323DE9E007CECB1 /* shaders in CopyFiles */,
 				320A4946260115DD00D5561C /* george_0.png in CopyFiles */,
 				3278BAD32644E4A9007CB972 /* ufo.png in CopyFiles */,
+				32C28E58264882150083916E /* playerImg.png in CopyFiles */,
+				32C28E54264881110083916E /* shipBeige_manned2.png in CopyFiles */,
+				32C28E5A264883370083916E /* playerImg2.png in CopyFiles */,
+				32C28E56264881550083916E /* shipBeige_manned3.png in CopyFiles */,
 				320879F4264230E400A0133C /* spaceMeteors_001.png in CopyFiles */,
 				32C28E4A2648520F0083916E /* coin.wav in CopyFiles */,
+				32C28E522648803C0083916E /* shipBeige_manned.png in CopyFiles */,
 				32DBBE542644CFD50076859E /* meteor_detailedLarge.png in CopyFiles */,
 				32C28E4626484F160083916E /* neon-laser.mp3 in CopyFiles */,
 				32DBBE502644C99A0076859E /* test1.png in CopyFiles */,
@@ -108,6 +118,11 @@
 		32C28E4C264866110083916E /* Level2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Level2.h; sourceTree = "<group>"; };
 		32C28E4E26486AEC0083916E /* Level3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Level3.cpp; sourceTree = "<group>"; };
 		32C28E4F26486AEC0083916E /* Level3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Level3.h; sourceTree = "<group>"; };
+		32C28E51264880370083916E /* shipBeige_manned.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shipBeige_manned.png; sourceTree = "<group>"; };
+		32C28E53264881010083916E /* shipBeige_manned2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shipBeige_manned2.png; sourceTree = "<group>"; };
+		32C28E55264881510083916E /* shipBeige_manned3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shipBeige_manned3.png; sourceTree = "<group>"; };
+		32C28E57264882040083916E /* playerImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playerImg.png; sourceTree = "<group>"; };
+		32C28E59264883310083916E /* playerImg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playerImg2.png; sourceTree = "<group>"; };
 		32CBA53A2610181800165FCE /* ctg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ctg.png; sourceTree = "<group>"; };
 		32DBBE4F2644C9940076859E /* test1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test1.png; sourceTree = "<group>"; };
 		32DBBE512644CD0A0076859E /* spaceShipTest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spaceShipTest.png; sourceTree = "<group>"; };
@@ -174,8 +189,13 @@
 				32DBBE512644CD0A0076859E /* spaceShipTest.png */,
 				320879F3264230DC00A0133C /* spaceMeteors_001.png */,
 				3278BAD22644E4A2007CB972 /* ufo.png */,
+				32C28E57264882040083916E /* playerImg.png */,
 				32DBBE4F2644C9940076859E /* test1.png */,
+				32C28E51264880370083916E /* shipBeige_manned.png */,
+				32C28E53264881010083916E /* shipBeige_manned2.png */,
 				320A494D2601396200D5561C /* font1.png */,
+				32C28E55264881510083916E /* shipBeige_manned3.png */,
+				32C28E59264883310083916E /* playerImg2.png */,
 				320A494F26013A8C00D5561C /* font2.png */,
 				320A4945260115D200D5561C /* george_0.png */,
 				320A49492601322300D5561C /* platformPack_tile007.png */,

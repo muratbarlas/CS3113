@@ -153,8 +153,6 @@ void Level3::Update(float deltaTime) {
 
 
 void Level3::Render(ShaderProgram *program) {
-    
-    
     state.map->Render(program);
     state.player->Render(program);
     
@@ -182,7 +180,7 @@ void Level3::Render(ShaderProgram *program) {
     
     //for testing
     //if (state.player->position.x >= 11 && state.player->position.x < 12){
-    //Util::DrawText(program, fontTextureID2, "YOU LOST" , 2.0f, -1.0f, glm:: vec3(8, -2.5,0.0f));
+    //Util::DrawText(program, fontTextureID4, "YOU LOST" , 2.0f, -1.0f, glm:: vec3(8, -2.5,0.0f));
     //std::cout<<"here3";
     //}
     

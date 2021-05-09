@@ -87,7 +87,7 @@ void Initialize() {
     sceneList[1] = new Level1();
     sceneList[2] = new Level2();
     sceneList[3] = new Level3();
-    SwitchToScene(sceneList[0]); //this is the scene the game starts with
+    SwitchToScene(sceneList[2]); //this is the scene the game starts with
     
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
     music = Mix_LoadMUS("neon-laser.mp3");
