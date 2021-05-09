@@ -54,7 +54,6 @@ void Level2::Initialize() {
     state.player->animRows = 4;
     */
     
-    state.player->jumpPower = 8.0f;
     
     
     

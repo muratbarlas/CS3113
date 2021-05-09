@@ -28,6 +28,7 @@
 #include "Level1.h"
 #include "Level2.h"
 #include "Level3.h"
+#include "Level4.h"
 #include "LevelMenu.h"
 
 
@@ -44,7 +45,7 @@ ShaderProgram program;
 glm::mat4 viewMatrix, modelMatrix, projectionMatrix;
 
 Scene *currentScene;
-Scene *sceneList[4];   //DONT FORGET TO INCREASE THIS IF YOU ADD NEW SCENES
+Scene *sceneList[5];   //DONT FORGET TO INCREASE THIS IF YOU ADD NEW SCENES
 void SwitchToScene(Scene *scene) {
     currentScene = scene;
     currentScene->Initialize();
@@ -87,7 +88,8 @@ void Initialize() {
     sceneList[1] = new Level1();
     sceneList[2] = new Level2();
     sceneList[3] = new Level3();
-    SwitchToScene(sceneList[2]); //this is the scene the game starts with
+    sceneList[4] = new Level4();
+    SwitchToScene(sceneList[0]); //this is the scene the game starts with
     
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
     music = Mix_LoadMUS("neon-laser.mp3");

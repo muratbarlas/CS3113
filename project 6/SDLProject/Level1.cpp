@@ -36,11 +36,11 @@ void Level1::Initialize() {
     state.player->position = glm::vec3(1, -6,0);//player's start position
     state.player->movement = glm::vec3(0);
     state.player->speed = 1.5f;
-    state.player->textureID = Util::LoadTexture("george_0.png");
+    state.player->textureID = Util::LoadTexture("playerImg2.png");
     //state.player->acceleration = glm::vec3(0,-9.0,0);
     
     
-    
+    /*
     state.player->animRight = new int[4] {3, 7, 11, 15};
     state.player->animLeft = new int[4] {1, 5, 9, 13};
     state.player->animUp = new int[4] {2, 6, 10, 14};
@@ -52,14 +52,14 @@ void Level1::Initialize() {
     state.player->animTime = 0;
     state.player->animCols = 4;
     state.player->animRows = 4;
-    
+    */
    
-    state.player->jumpPower = 8.0f;
+    
     
     
     
     state.player->height=0.9;
-    state.player->width=0.9;
+    state.player->width=0.8;
     
     state.enemies = new Entity[LEVEL1_ENEMY_COUNT];
     GLuint enemyTextureID = Util::LoadTexture("ufo.png");
@@ -70,7 +70,7 @@ void Level1::Initialize() {
     state.enemies[0].aiType = JUMPER;
     state.enemies[0].acceleration = glm::vec3(0,-3.0f,0);
     state.enemies[0].velocity = glm::vec3(0,1,0);
-    state.enemies[0].isActive=false;
+    //state.enemies[0].isActive=false;
     
     
     
