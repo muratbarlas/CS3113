@@ -75,7 +75,7 @@ void Entity::CheckCollisionsX(Entity *objects, int objectCount){
                     if ((this->lives) > 0 )this->lives -=1; //decrease player lives by 1
                     if ((this->lives) >= 1){
                         //std::cout << this->lives << '\n';
-                        this->position = glm::vec3(2, 0,0); //bring the player back to the beginning if there
+                        this->position = glm::vec3(1, -6,0); //bring the player back to the beginning if there
                                                             //are remaining lives
                     }
                 }
@@ -98,7 +98,7 @@ void Entity::CheckCollisionsX(Entity *objects, int objectCount){
                     if ((this->lives) > 0 )this->lives -=1; //decrease player lives by 1
                     if ((this->lives) >= 1){
                         //std::cout << this->lives << '\n';
-                        this->position = glm::vec3(2, 0,0); //bring the player back to the beginning if there
+                        this->position = glm::vec3(1, -6,0); //bring the player back to the beginning if there
                         //are remaining lives
                     }
                     //
@@ -142,6 +142,7 @@ void Entity::CheckCollisionsY(Map *map)
         collidedTop = true;
     }
     
+    /*
     //new addition start
     else if (map->IsSolid(top_right, &penetration_x, &penetration_y) && velocity.x > 0) {
         // Check if we are going to the right
@@ -157,9 +158,9 @@ void Entity::CheckCollisionsY(Map *map)
         collidedLeft = true;
     }
     //new addition end
+    */
     
-   
-   
+    
     
     if (map->IsSolid(bottom, &penetration_x, &penetration_y) && velocity.y < 0) {
         position.y += penetration_y;
@@ -178,6 +179,7 @@ void Entity::CheckCollisionsY(Map *map)
         collidedBottom = true;
     }
     
+    /*
     //new addition start
     else if (map->IsSolid(bottom_right, &penetration_x, &penetration_y) && velocity.x > 0) {
         // Check if we are going to the right
@@ -193,9 +195,9 @@ void Entity::CheckCollisionsY(Map *map)
         collidedLeft = true;
     }
     //new addition end
+    */
     
-
-     
+    
 }
 
 
@@ -255,6 +257,7 @@ void Entity::AIWaitAndGo(Entity* player){
 }
 
 void Entity::Jumper(Entity* player){
+   
     if (velocity.y == 0){
         velocity = glm::vec3(0,5,0);
     }
@@ -311,8 +314,12 @@ void Entity::Update(float deltaTime, Entity *player, Entity *objects, int object
     }
     
     velocity.x = movement.x*speed;
-    velocity += acceleration*deltaTime; //without this it doesn't move up 
-    velocity.y = movement.y * speed;
+    velocity += acceleration*deltaTime; //without this it doesn't move up
+    
+    if (entityType == PLAYER){
+        velocity.y = movement.y * speed; //without this up and down keys don't work
+        //for the player
+    }
     
     position.y += velocity.y * deltaTime;
     CheckCollisionsY(map);
