@@ -199,13 +199,20 @@ void Update() {
     viewMatrix = glm::mat4(1.0f);
     
     if (currentScene != sceneList[3]){ //for the first two scenes
-        if (currentScene->state.player->position.x > 5) {
+        if ((currentScene->state.player->position.x > 5) && (currentScene->state.player->position.x < 14)) {
             viewMatrix = glm::translate(viewMatrix, glm::vec3(-currentScene->state.player->position.x, 3.75, 0));
-        } else {
+        } else if (currentScene->state.player->position.x <= 5) {
             viewMatrix = glm::translate(viewMatrix, glm::vec3(-5, 3.75, 0));
+        }
+        
+        else if (currentScene->state.player->position.x >= 14) {
+            
+            viewMatrix = glm::translate(viewMatrix, glm::vec3(-14, 3.75, 0));
         }
         //3.75 moves the world up in the view
     }
+    
+    /*
     else{//when on last scene
         if ((currentScene->state.player->position.x > 5) && !(currentScene->state.player->position.x >= 12)) {
             viewMatrix = glm::translate(viewMatrix, glm::vec3(-currentScene->state.player->position.x, 3.75, 0));
@@ -217,6 +224,7 @@ void Update() {
         }
         
     }
+    */
 }
 
 

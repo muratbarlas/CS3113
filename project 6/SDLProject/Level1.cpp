@@ -1,22 +1,22 @@
 #include "Level1.h"
-#define LEVEL1_WIDTH 18
+#define LEVEL1_WIDTH 20
 #define LEVEL1_HEIGHT 8
 
 
 #define LEVEL1_ENEMY_COUNT 1
-#define LEVEL1_STAR_COUNT 4
+#define LEVEL1_STAR_COUNT 5
 
 GLuint fontTextureID2;
 
 unsigned int level1_data[] ={
-    3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,3,3,3,3,
-    3, 0, 2, 2, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0,0,0,0,3,
-    3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,3,
-    3, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0,0,0,0,3,
-    3, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0,0,0,0,3,
-    3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,3,
-    3, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0,0,0,0,3,
-    3, 2, 2, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2,2,2,2,3,
+    3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,3,3,3,3,3,3,
+    3, 0, 2, 2, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0,0,0,0,0,0,3,
+    3, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0,0,0,0,0,0,3,
+    3, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0,0,0,0,0,0,3,
+    3, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0,0,0,0,0,0,3,
+    3, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0,0,0,0,0,0,3,
+    3, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0,0,0,0,0,0,3,
+    3, 2, 2, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2,2,2,2,2,2,3,
 };
 
 
@@ -58,8 +58,8 @@ void Level1::Initialize() {
     
     
     
-    state.player->height=0.8;
-    state.player->width=0.8;
+    state.player->height=0.9;
+    state.player->width=0.9;
     
     state.enemies = new Entity[LEVEL1_ENEMY_COUNT];
     GLuint enemyTextureID = Util::LoadTexture("ufo.png");
@@ -69,10 +69,9 @@ void Level1::Initialize() {
     state.enemies[0].position= glm::vec3(4.5, -3,0);
     //state.enemies[0].initPosX = 4.0f;
     state.enemies[0].aiType = JUMPER;
-    //state.enemies[0].speed = 1;
     state.enemies[0].acceleration = glm::vec3(0,-3.0f,0);
     state.enemies[0].velocity = glm::vec3(0,1,0);
-    //state.enemies[0].isActive=false;
+    state.enemies[0].isActive=false;
     
     state.stars = new Entity[LEVEL1_STAR_COUNT];
     GLuint starTextureID = Util::LoadTexture("meteor_DetailedLarge.png");
@@ -86,15 +85,19 @@ void Level1::Initialize() {
     
     state.stars[2].entityType = STAR;
     state.stars[2].textureID = starTextureID;
-    state.stars[2].position= glm::vec3(1,-2,0);
+    state.stars[2].position= glm::vec3(1,-1,0);//upper left corner
     
     state.stars[3].entityType = STAR;
     state.stars[3].textureID = starTextureID;
-    state.stars[3].position= glm::vec3(2,-2,0);
+    state.stars[3].position= glm::vec3(3,-2,0);
     
     state.stars[3].entityType = STAR;
     state.stars[3].textureID = starTextureID;
-    state.stars[3].position= glm::vec3(2,-5,0);
+    state.stars[3].position= glm::vec3(3,-5,0);
+    
+    state.stars[4].entityType = STAR;
+    state.stars[4].textureID = starTextureID;
+    state.stars[4].position= glm::vec3(3,-2,0);
     
     
 }
@@ -125,8 +128,12 @@ void Level1::Render(ShaderProgram *program) {
         Util::DrawText(program, fontTextureID2, "Lives:" + std::to_string(state.player->lives) , 0.5f, -0.2f, glm:: vec3(7.5, -0.5,0.0f));
     }
     
-    else if (state.player->position.x >= 5) {
+    else if (state.player->position.x >= 5 && state.player->position.x <14) {
         Util::DrawText(program, fontTextureID2, "Lives:" + std::to_string(state.player->lives) , 0.5f, -0.2f, glm:: vec3(state.player->position.x+2.5, -0.5,0.0f));
+    }
+    
+    else{
+         Util::DrawText(program, fontTextureID2, "Lives:" + std::to_string(state.player->lives) , 0.5f, -0.2f, glm:: vec3(16.5, -0.5,0.0f));
     }
     
    
