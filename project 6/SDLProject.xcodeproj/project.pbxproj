@@ -28,6 +28,8 @@
 		3278BAD32644E4A9007CB972 /* ufo.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3278BAD22644E4A2007CB972 /* ufo.png */; };
 		32C28E4626484F160083916E /* neon-laser.mp3 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32C28E4526484F100083916E /* neon-laser.mp3 */; };
 		32C28E4A2648520F0083916E /* coin.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32C28E49264852040083916E /* coin.wav */; };
+		32C28E4D264866110083916E /* Level2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32C28E4B264866110083916E /* Level2.cpp */; };
+		32C28E5026486AEC0083916E /* Level3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32C28E4E26486AEC0083916E /* Level3.cpp */; };
 		32CBA53B2610181C00165FCE /* ctg.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32CBA53A2610181800165FCE /* ctg.png */; };
 		32DBBE502644C99A0076859E /* test1.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32DBBE4F2644C9940076859E /* test1.png */; };
 		32DBBE522644CD120076859E /* spaceShipTest.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32DBBE512644CD0A0076859E /* spaceShipTest.png */; };
@@ -102,6 +104,10 @@
 		3278BAD22644E4A2007CB972 /* ufo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ufo.png; sourceTree = "<group>"; };
 		32C28E4526484F100083916E /* neon-laser.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "neon-laser.mp3"; sourceTree = "<group>"; };
 		32C28E49264852040083916E /* coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coin.wav; sourceTree = "<group>"; };
+		32C28E4B264866110083916E /* Level2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Level2.cpp; sourceTree = "<group>"; };
+		32C28E4C264866110083916E /* Level2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Level2.h; sourceTree = "<group>"; };
+		32C28E4E26486AEC0083916E /* Level3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Level3.cpp; sourceTree = "<group>"; };
+		32C28E4F26486AEC0083916E /* Level3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Level3.h; sourceTree = "<group>"; };
 		32CBA53A2610181800165FCE /* ctg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ctg.png; sourceTree = "<group>"; };
 		32DBBE4F2644C9940076859E /* test1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test1.png; sourceTree = "<group>"; };
 		32DBBE512644CD0A0076859E /* spaceShipTest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spaceShipTest.png; sourceTree = "<group>"; };
@@ -190,6 +196,10 @@
 				3231FDE1262B88E200A32046 /* Scene.cpp */,
 				3231FDE2262B88E200A32046 /* Scene.h */,
 				3231FDE4262B8A3300A32046 /* Level1.cpp */,
+				32C28E4B264866110083916E /* Level2.cpp */,
+				32C28E4E26486AEC0083916E /* Level3.cpp */,
+				32C28E4F26486AEC0083916E /* Level3.h */,
+				32C28E4C264866110083916E /* Level2.h */,
 				3231FDE5262B8A3300A32046 /* Level1.h */,
 				3231FDF1262D0F5300A32046 /* LevelMenu.cpp */,
 				3231FDF2262D0F5300A32046 /* LevelMenu.h */,
@@ -269,9 +279,11 @@
 				DBDF1B532323DE3F007CECB1 /* main.cpp in Sources */,
 				320A49442601154400D5561C /* Entity.cpp in Sources */,
 				3231FDD7262A7E6400A32046 /* Map.cpp in Sources */,
+				32C28E5026486AEC0083916E /* Level3.cpp in Sources */,
 				DBDF1B5E2323DE8D007CECB1 /* ShaderProgram.cpp in Sources */,
 				3231FDDD262B845400A32046 /* Util.cpp in Sources */,
 				3231FDE6262B8A3300A32046 /* Level1.cpp in Sources */,
+				32C28E4D264866110083916E /* Level2.cpp in Sources */,
 				3231FDF3262D0F5300A32046 /* LevelMenu.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

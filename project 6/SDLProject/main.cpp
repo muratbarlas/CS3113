@@ -26,8 +26,8 @@
 
 #include "Scene.h"
 #include "Level1.h"
-//#include "Level2.h"
-//#include "Level3.h"
+#include "Level2.h"
+#include "Level3.h"
 #include "LevelMenu.h"
 
 
@@ -44,7 +44,7 @@ ShaderProgram program;
 glm::mat4 viewMatrix, modelMatrix, projectionMatrix;
 
 Scene *currentScene;
-Scene *sceneList[2];
+Scene *sceneList[4];   //DONT FORGET TO INCREASE THIS IF YOU ADD NEW SCENES
 void SwitchToScene(Scene *scene) {
     currentScene = scene;
     currentScene->Initialize();
@@ -85,9 +85,9 @@ void Initialize() {
     
     sceneList[0] = new LevelMenu();
     sceneList[1] = new Level1();
-    //sceneList[2] = new Level2();
-    //sceneList[3] = new Level3();
-    SwitchToScene(sceneList[1]); //this is the scene the game starts with
+    sceneList[2] = new Level2();
+    sceneList[3] = new Level3();
+    SwitchToScene(sceneList[0]); //this is the scene the game starts with
     
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
     music = Mix_LoadMUS("neon-laser.mp3");
@@ -198,7 +198,7 @@ void Update() {
     
     viewMatrix = glm::mat4(1.0f);
     
-    if (currentScene != sceneList[3]){ //for the first two scenes
+    //if (currentScene != sceneList[3]){ //for the first two scenes
         if ((currentScene->state.player->position.x > 5) && (currentScene->state.player->position.x < 14)) {
             viewMatrix = glm::translate(viewMatrix, glm::vec3(-currentScene->state.player->position.x, 3.75, 0));
         } else if (currentScene->state.player->position.x <= 5) {
@@ -210,21 +210,9 @@ void Update() {
             viewMatrix = glm::translate(viewMatrix, glm::vec3(-14, 3.75, 0));
         }
         //3.75 moves the world up in the view
-    }
+    //}
     
-    /*
-    else{//when on last scene
-        if ((currentScene->state.player->position.x > 5) && !(currentScene->state.player->position.x >= 12)) {
-            viewMatrix = glm::translate(viewMatrix, glm::vec3(-currentScene->state.player->position.x, 3.75, 0));
-        }else if (currentScene->state.player->position.x <= 5)  {
-            viewMatrix = glm::translate(viewMatrix, glm::vec3(-5, 3.75, 0));
-        }
-        else if (currentScene->state.player->position.x >= 12  ) {
-            viewMatrix = glm::translate(viewMatrix, glm::vec3(-12, 3.75, 0));
-        }
-        
-    }
-    */
+   
 }
 
 
