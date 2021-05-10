@@ -78,7 +78,7 @@ void Entity::CheckCollisionsX(Entity *objects, int objectCount){
                     if ((this->lives) >= 1){
                         //std::cout << this->lives << '\n';
                         this->position = glm::vec3(1, -6,0); //bring the player back to the beginning if there
-                                                            //are remaining lives
+                        //are remaining lives
                     }
                 }
                 else if (this->entityType == PLAYER && object -> entityType == STAR){
@@ -105,7 +105,7 @@ void Entity::CheckCollisionsX(Entity *objects, int objectCount){
                         //are remaining lives
                     }
                     //
-                   
+                    
                     
                 }
                 else if(this->entityType == PLAYER && object -> entityType == STAR){
@@ -121,108 +121,78 @@ void Entity::CheckCollisionsX(Entity *objects, int objectCount){
 
 void Entity::CheckCollisionsY(Map *map)
 {
-    // Probes for tiles
-    glm::vec3 top = glm::vec3(position.x, position.y + (height / 2), position.z);
-    glm::vec3 top_left = glm::vec3(position.x - (width / 2), position.y + (height / 2), position.z);
-    glm::vec3 top_right = glm::vec3(position.x + (width / 2), position.y + (height / 2), position.z);
-    glm::vec3 bottom = glm::vec3(position.x, position.y - (height / 2), position.z);
-    glm::vec3 bottom_left = glm::vec3(position.x - (width / 2), position.y - (height / 2), position.z);
-    glm::vec3 bottom_right = glm::vec3(position.x + (width / 2), position.y - (height / 2), position.z);
+    if (velocity.y == 0) return;
+    
     float penetration_x = 0;
     float penetration_y = 0;
-    if (map->IsSolid(top, &penetration_x, &penetration_y) && velocity.y > 0) {
-        position.y -= penetration_y;
+    glm::vec3 probe = glm::vec3(position.x, position.y + (height / 2), position.z);
+    
+    if (velocity.y < 0) {
+        probe.y = position.y - (height / 2);
+    }
+    
+    map->IsSolid(probe, &penetration_x, &penetration_y);
+    
+    if (penetration_y == 0) {
+        probe.x = position.x - (width / 2);
+        map->IsSolid(probe, &penetration_x, &penetration_y);
+    }
+    
+    if (penetration_y == 0) {
+        probe.x = position.x + (width / 2);
+        map->IsSolid(probe, &penetration_x, &penetration_y);
+    }
+    
+    if (penetration_y > 0) {
+        if (velocity.y > 0) {
+            position.y = floor(position.y);
+            collidedTop = true;
+        }
+        else if (velocity.y < 0) {
+            position.y = ceil(position.y);
+            collidedBottom = true;
+        }
         velocity.y = 0;
-        collidedTop = true;
     }
-    else if (map->IsSolid(top_left, &penetration_x, &penetration_y) && velocity.y > 0) {
-        position.y -= penetration_y;
-        velocity.y = 0;
-        collidedTop = true;
-    }
-    else if (map->IsSolid(top_right, &penetration_x, &penetration_y) && velocity.y > 0) {
-        position.y -= penetration_y;
-        velocity.y = 0;
-        collidedTop = true;
-    }
-    
-    /*
-    //new addition start
-    else if (map->IsSolid(top_right, &penetration_x, &penetration_y) && velocity.x > 0) {
-        // Check if we are going to the right
-        position.x -= penetration_x; // move us back to the left
-        velocity.x = 0;
-        collidedRight = true;
-    }
-    
-    else if (map->IsSolid(top_left, &penetration_x, &penetration_y) && velocity.x < 0) {
-        // Check if we are going to the left
-        position.x += penetration_x; // move us back to the right
-        velocity.x = 0;
-        collidedLeft = true;
-    }
-    //new addition end
-    */
-    
-    
-    
-    if (map->IsSolid(bottom, &penetration_x, &penetration_y) && velocity.y < 0) {
-        position.y += penetration_y;
-        velocity.y = 0;
-        collidedBottom = true;
-    }
-    else if (map->IsSolid(bottom_left, &penetration_x, &penetration_y) && velocity.y < 0) {
-        position.y += penetration_y;
-        velocity.y = 0;
-        collidedBottom = true;
-    }
-    else if (map->IsSolid(bottom_right, &penetration_x, &penetration_y) && velocity.y < 0) {
-        //
-        position.y += penetration_y;
-        velocity.y = 0;
-        collidedBottom = true;
-    }
-    
-    /*
-    //new addition start
-    else if (map->IsSolid(bottom_right, &penetration_x, &penetration_y) && velocity.x > 0) {
-        // Check if we are going to the right
-        position.x -= penetration_x; // move us back to the left
-        velocity.x = 0;
-        collidedRight = true;
-    }
-    
-    else if (map->IsSolid(bottom_left, &penetration_x, &penetration_y) && velocity.x < 0) {
-        // Check if we are going to the left
-        position.x += penetration_x; // move us back to the right
-        velocity.x = 0;
-        collidedLeft = true;
-    }
-    //new addition end
-    */
-    
-    
 }
+
 
 
 void Entity::CheckCollisionsX(Map *map)
 {
-    // Probes for tiles
-    glm::vec3 left = glm::vec3(position.x - (width / 2), position.y, position.z);
-    glm::vec3 right = glm::vec3(position.x + (width / 2), position.y, position.z);
+    if (velocity.x == 0) return;
+    
     float penetration_x = 0;
     float penetration_y = 0;
-    if (map->IsSolid(left, &penetration_x, &penetration_y) && velocity.x < 0) {
-        position.x += penetration_x;
-        velocity.x = 0;
-        collidedLeft = true;
-    }
-    if (map->IsSolid(right, &penetration_x, &penetration_y) && velocity.x > 0) {
-        position.x -= penetration_x;
-        velocity.x = 0;
-        collidedRight = true;
+    glm::vec3 probe = glm::vec3(position.x + (width / 2), position.y, position.z);
+    
+    if (velocity.x < 0) {
+        probe.x = position.x - (width / 2);
     }
     
+    map->IsSolid(probe, &penetration_x, &penetration_y);
+    
+    if (penetration_x == 0) {
+        probe.y = position.y - (height / 2);
+        map->IsSolid(probe, &penetration_x, &penetration_y);
+    }
+    
+    if (penetration_x == 0) {
+        probe.y = position.y + (height / 2);
+        map->IsSolid(probe, &penetration_x, &penetration_y);
+    }
+    
+    if (penetration_x > 0) {
+        if (velocity.x > 0) {
+            position.x = floor(position.x);
+            collidedRight = true;
+        }
+        else if (velocity.x < 0) {
+            position.x = ceil(position.x);
+            collidedLeft = true;
+        }
+        velocity.x = 0;
+    }
 }
 
 
@@ -251,7 +221,7 @@ void Entity::AIWaitAndGo(Entity* player){
                 movement = glm::vec3(-1,0,0);
             }
             else{
-               movement = glm::vec3(1,0,0);
+                movement = glm::vec3(1,0,0);
             }
             
             break;
@@ -261,7 +231,7 @@ void Entity::AIWaitAndGo(Entity* player){
 }
 
 void Entity::Jumper(Entity* player){
-   
+    
     if (velocity.y == 0){
         velocity = glm::vec3(0,5,0);
     }
@@ -340,7 +310,7 @@ void Entity::Update(float deltaTime, Entity *player, Entity *objects, int object
     
     modelMatrix = glm::mat4(1.0f);
     modelMatrix = glm::translate(modelMatrix, position);
-      
+    
 }
 
 void Entity::DrawSpriteFromTextureAtlas(ShaderProgram *program, GLuint textureID, int index){
@@ -395,3 +365,4 @@ void Entity::Render(ShaderProgram *program) {
     glDisableVertexAttribArray(program->positionAttribute);
     glDisableVertexAttribArray(program->texCoordAttribute);
 }
+
