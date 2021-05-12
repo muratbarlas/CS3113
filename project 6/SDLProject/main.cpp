@@ -1,4 +1,7 @@
 //project 6 Murat Barlas
+//This is a 3 level top down game. The goal is to move around using the
+//arrow keys and collect all the white atreoids. The player has 3 lives
+//and they die if you collide with the enemies, which are the green aliens.
 
 
 #define GL_SILENCE_DEPRECATION

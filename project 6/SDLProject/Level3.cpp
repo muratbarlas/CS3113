@@ -168,7 +168,6 @@ void Level3::Render(ShaderProgram *program) {
     }
     
     
-   
     
     if (state.player ->lives == 0){
         if (state.player->position.x >= 5 && state.player->position.x <= 6){
@@ -181,7 +180,7 @@ void Level3::Render(ShaderProgram *program) {
             
         }
         
-        else if (state.player->position.x > 14){
+        else if (state.player->position.x > 9){
             Util::DrawText(program, fontTextureID4, "YOU LOST" , 2.0f, -1.0f, glm:: vec3(10.5, -2.5,0.0f));
             
         }
